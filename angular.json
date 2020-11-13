@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "proyecto-final-mijapop-anuncios"
+    }
+  },
+  "defaultProject": "proyecto-final-mijapop-anuncios",
+  "cli": {
+    "analytics": false
+  }
 }
