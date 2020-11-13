@@ -1,27 +1,18 @@
 # ProyectoFinalMijapopAnuncios
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
+##Definición.
+Mijapop es una plataforma de compraventa de productos de segunda mano con mucho glamour. ¿Sabes esa tienda que no es una cadena, pero tiene unos productos que se diferencian por su calidad, acabados y aspecto únicos?. En las tiendas virtuales de segunda mano, esos somos nosotros. 
 
-## Development server
+##NO LO TIRES, GANA DINERO (Vende)
+Ya sabes como va esto, echas unas fotos, describes el producto y a vender. Pero eso no es todo, si quieres ganar un mejor posicionamiento de venta, currate el anuncio, los usuarios pueden darle a like a tu producto sin entrar en él, cuantos más likes tengas, más alto estarán tus anuncios. Haz buenas fotos, (metele un filtro chulo) y dale un toque especial a la descripción de tu artículo. 
+ 
+##ENCUENTRA OPORTUNIDADES CERCA DE TI (Comprar)
+Mijapop te enseña los productos que buscas por posición y por reputación del vendedor. Chatea, queda y compra.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+##NO TE PIERDAS NADA (Navega)
+Hemos diseñado un feed global dinámico, esperando que encuentres confortable el entorno que hemos creado para que no te canses de navegar por Mijapop hasta que encuentres lo que buscas. De un simple vistazo verás cuántas personas han visto y guardado cada producto, también  tienen un botón de me gusta,  uno de compartir y otro de guardar en tu lista de favoritos.
+ 
+##CREA TU LISTA DE FAVORITOS (Guarda)
+Haz seguimientos de tus artículos favoritos. (te avisamos si bajan de precio o son vendidos)
+ 
+No esperes más, descarga mijapop. Podrás vender, comprar de manera divertida y entretenida.
