@@ -18,6 +18,10 @@ import { ProductCardComponent } from './core/components/product-card/product-car
 import { MessagesComponent } from './core/components/messages/messages.component';
 import { RegisterComponent } from './core/components/register/register.component';
 import { ProductsCategoryComponent } from './core/components/products-category/products-category.component';
+import { LoginComponent } from './shared/components/login/login.component';
+import { LogoutComponent } from './shared/components/logout/logout.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -35,12 +39,16 @@ import { ProductsCategoryComponent } from './core/components/products-category/p
     ProductCardComponent,
     MessagesComponent,
     RegisterComponent,
-    ProductsCategoryComponent
+    ProductsCategoryComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
