@@ -1,1 +1,63 @@
-<p>header works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+    aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" routerLink="/home"><img src="assets/image/logo.svg"></a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <form class="form-inline my-2 my-lg-0">
+      <input id="navBarSearchInput" class="form-control mr-sm-2" type="search"
+        placeholder="Buscar en Todas las categorías" aria-label="Search" [(ngModel)]="q" name="q">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="button" [routerLink]="['/search', q]">
+        <fa-icon [icon]="faSearch"></fa-icon>
+      </button>
+    </form>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" *ngIf="this.isAuthenticated">
+        <a class="nav-link" routerLink="/messages" routerLinkActive="active">Mensajes</a>
+      </li>
+      <li class="nav-item dropdown" *ngIf="this.isAuthenticated">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Mi zona
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/favorites" routerLinkActive="active">Favoritos</a>
+          <a class="dropdown-item" routerLink="/my-products-market" routerLinkActive="active">En venta</a>
+          <a class="dropdown-item" routerLink="/my-products-sold" routerLinkActive="active">Vendidos</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/profile" routerLinkActive="active">Perfil</a>
+        </div>
+      </li>
+      <li class="nav-item" *ngIf="!this.isAuthenticated">
+        <a class="nav-link" routerLink="/register" routerLinkActive="active">Regístrate</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" routerLink="/search" routerLinkActive="active">Búsqueda</a>
+      </li> -->
+      <li class="nav-item" *ngIf="this.isAuthenticated">
+        <a class="nav-link" routerLink="/upload-product" routerLinkActive="active">Subir producto</a>
+      </li>
+      <li class="nav-item" *ngIf="!this.isAuthenticated">
+        <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="this.isAuthenticated">
+        <a class="nav-link" routerLink="/logout" routerLinkActive="active">Logout</a>
+      </li>
+      <!-- <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li> -->
+    </ul>
+
+  </div>
+</nav>

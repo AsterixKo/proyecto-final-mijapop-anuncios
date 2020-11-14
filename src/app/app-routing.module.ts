@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'products-category', component: ProductsCategoryComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent },
-  { path: 'search', component: SearchComponent },
+  { path: 'search/:q', component: SearchComponent },
   { path: 'upload-product', component: UploadProductComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },

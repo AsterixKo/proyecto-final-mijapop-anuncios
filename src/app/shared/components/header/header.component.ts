@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  faSearch = faSearch;
+  q: string;//query de búsqueda
+  isAuthenticated: boolean;
+
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
+    this.isAuthenticated = this.auth.isAuth();
   }
 
 }
