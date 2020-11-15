@@ -3,6 +3,7 @@ export class ProductModel {
     private _idCategory: string;
     private _idSubcategory: string;
     private _idUser: string;
+    private _userName: string;
     private _name: string;
     private _description: string;
     private _price: number;
@@ -20,7 +21,7 @@ export class ProductModel {
     private _photo10: string;
 
     constructor(id: string, idCategory: string, idSubcategory: string,
-        idUser: string, name: string, description: string,
+        idUser: string, userName: string, name: string, description: string,
         price: number, currency: string, productStatus: string,
         photo1: string, photo2: string, photo3: string,
         photo4: string, photo5: string, photo6: string,
@@ -30,6 +31,7 @@ export class ProductModel {
         this._idCategory = idCategory;
         this._idSubcategory = idSubcategory;
         this._idUser = idUser;
+        this._userName = userName;
         this._name = name;
         this._description = description;
         this._price = price;
@@ -77,6 +79,14 @@ export class ProductModel {
 
     set idUser(idUser: string) {
         this._idUser = idUser;
+    }
+
+    get userName(): string {
+        return this._userName;
+    }
+
+    set userName(userName: string) {
+        this._userName = userName;
     }
 
     get name(): string {
