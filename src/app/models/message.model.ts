@@ -1,23 +1,21 @@
-import { text } from '@fortawesome/fontawesome-svg-core';
-
 export class MessageModel {
     private _id: string;
     private _conversation: string;
     private _idUser: string;
     private _userName: string;
     private _text: string;
-    private _date: Date; 
-    private _checked: boolean;
+    private _date: Date;
+    private _isChecked: boolean;
     private _isOwner: boolean;
 
-    constructor(id: string, conversation: string, idUser: string, userName: string, text: string, date: Date, checked: boolean, isOwner: boolean) {
+    constructor(id: string, conversation: string, idUser: string, userName: string, text: string, date: Date, isChecked: boolean, isOwner: boolean) {
         this._id = id;
         this._conversation = conversation;
         this._idUser = idUser;
         this._userName = userName;
         this._text = text;
         this._date = date;
-        this._checked = checked;
+        this._isChecked = isChecked;
         this._isOwner = isOwner;
     }
 
@@ -34,10 +32,10 @@ export class MessageModel {
     }
 
     set conversation(conversaton: string) {
-        this._conversation = conversaton; 
+        this._conversation = conversaton;
     }
 
-    get idUser():string {
+    get idUser(): string {
         return this._idUser;
     }
 
@@ -69,12 +67,12 @@ export class MessageModel {
         this._date = date;
     }
 
-    get checked():boolean {
-        return this._checked;
+    get isChecked(): boolean {
+        return this._isChecked;
     }
 
-    set checked(checked: boolean) {
-        this._checked = checked;
+    set isChecked(isChecked: boolean) {
+        this._isChecked = isChecked;
     }
 
     get isOwner(): boolean {
@@ -86,4 +84,3 @@ export class MessageModel {
     }
 }
 
-    
