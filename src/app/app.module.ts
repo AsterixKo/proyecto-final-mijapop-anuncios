@@ -21,6 +21,7 @@ import { ProductsCategoryComponent } from './core/components/products-category/p
 import { LoginComponent } from './shared/components/login/login.component';
 import { LogoutComponent } from './shared/components/logout/logout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductsSubcategoryComponent } from './core/components/products-subcategory/products-subcategory.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     ProductsCategoryComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    ProductsSubcategoryComponent
   ],
   imports: [
     BrowserModule,

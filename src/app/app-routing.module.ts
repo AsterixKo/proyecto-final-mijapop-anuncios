@@ -6,6 +6,7 @@ import { MyProductsMarketComponent } from './core/components/my-products-market/
 import { MyProductsSoldComponent } from './core/components/my-products-sold/my-products-sold.component';
 import { ProductDetailComponent } from './core/components/product-detail/product-detail.component';
 import { ProductsCategoryComponent } from './core/components/products-category/products-category.component';
+import { ProductsSubcategoryComponent } from './core/components/products-subcategory/products-subcategory.component';
 import { ProfileComponent } from './core/components/profile/profile.component';
 import { RegisterComponent } from './core/components/register/register.component';
 import { SearchComponent } from './core/components/search/search.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'my-products-sold', component: MyProductsSoldComponent, canActivate: [AuthGuard] },
   { path: 'product-detail', component: ProductDetailComponent },
   { path: 'products-category', component: ProductsCategoryComponent },
+  { path: 'products-subcategory', component: ProductsSubcategoryComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'search/:q', component: SearchComponent },
