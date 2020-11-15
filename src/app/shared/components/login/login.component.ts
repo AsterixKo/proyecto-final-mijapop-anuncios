@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserModel } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
+import { HeaderNavBarService } from 'src/app/services/header-nav-bar.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   user: UserModel = new UserModel('', '');
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: AuthService, private router: Router, private headerNavBarService: HeaderNavBarService) { }
 
   ngOnInit(): void {
   }
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
 
     if (loginResult) {
       this.router.navigateByUrl('/publish');
+      this.headerNavBarService.changeNavBar('login');
     } else {
       alert('usuario o contraseña incorrectos. Vuelve a intentarlo');
     }
