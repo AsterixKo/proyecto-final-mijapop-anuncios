@@ -10,18 +10,10 @@ export class UserModel {
     private _phone: string;
     private _gender: string;
     private _dateBirth: Date;
+    private _srcImage: string;
 
-    constructor(id: string,
-        email: string,
-        password: string,
-        name: string,
-        lastName: string,
-        location: string,
-        description: string,
-        callSchedule: string,
-        phone: string,
-        gender: string,
-        dateBirth: Date) {
+
+    constructor(id: string, email: string, password: string, name: string, lastName: string, location: string, description: string, callSchedule: string, phone: string, gender: string, dateBirth: Date, srcImage: string) {
         this._id = id;
         this._email = email;
         this._password = password;
@@ -33,7 +25,9 @@ export class UserModel {
         this._phone = phone;
         this._gender = gender;
         this._dateBirth = dateBirth;
+        this._srcImage = srcImage;
     }
+
 
     /**
      * Getter id
@@ -124,6 +118,14 @@ export class UserModel {
     }
 
     /**
+     * Getter srcImage
+     * @return {string}
+     */
+    public get srcImage(): string {
+        return this._srcImage;
+    }
+
+    /**
      * Setter id
      * @param {string} value
      */
@@ -210,5 +212,14 @@ export class UserModel {
     public set dateBirth(value: Date) {
         this._dateBirth = value;
     }
+
+    /**
+     * Setter srcImage
+     * @param {string} value
+     */
+    public set srcImage(value: string) {
+        this._srcImage = value;
+    }
+
 
 }
