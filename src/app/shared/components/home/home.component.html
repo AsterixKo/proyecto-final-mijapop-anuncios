@@ -1,1 +1,70 @@
-<p>home works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col d-flex justify-content-center">
+      <p>mijapop, la plataforma líder de compraventa de productos de Segunda mano</p>
+    </div>
+  </div>
+  <div class="row fila">
+    <div class="col columna d-flex justify-content-center">
+      <h1>¿Qué estás buscando hoy?</h1>
+    </div>
+  </div>
+  <div class="row fila">
+    <div class="col columna d-flex justify-content-center flex-wrap">
+
+      <div class="btn btn-success m-1">
+        <a class="d-flex flex-column" [routerLink]="['/products-category', 'coches']">
+          <fa-icon [icon]="faCar" size="6x"></fa-icon>
+          <span>Coches</span>
+        </a>
+      </div>
+      <div class="btn btn-success m-1">
+        <a class="d-flex flex-column" [routerLink]="['/products-category', 'motos']">
+          <fa-icon [icon]="faMotorcycle" size="6x"></fa-icon>
+          <span>Motos</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row fila">
+    <div class="col columna d-flex justify-content-center">
+      <h1>Prepara tu salón para el frío</h1>
+    </div>
+  </div>
+
+  <div class="row fila">
+    <div class="col-md-4 col-sm-12  columna">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="assets/image/products/sofa.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Sofa</h5>
+          <p class="card-text">115.333 anuncios</p>
+          <a [routerLink]="['/search', 'sofas']" class="btn btn-primary">Ver Sofas</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12 columna">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="assets/image/products/" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Sofa</h5>
+          <p class="card-text">115.333 anuncios</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12 columna">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Sofa</h5>
+          <p class="card-text">115.333 anuncios</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

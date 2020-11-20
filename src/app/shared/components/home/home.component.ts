@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { faCar, faMotorcycle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  faCar = faCar;
+  faMotorcycle = faMotorcycle;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
   }
 
 }

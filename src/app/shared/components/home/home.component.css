@@ -1,0 +1,11 @@
+/* .columna {
+    background-color: aquamarine;
+}
+
+.fila {
+    background-color: lightslategray;
+} */
+
+.icon-category {
+    display: flex;
+}
