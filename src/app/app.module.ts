@@ -22,6 +22,8 @@ import { LoginComponent } from './shared/components/login/login.component';
 import { LogoutComponent } from './shared/components/logout/logout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsSubcategoryComponent } from './core/components/products-subcategory/products-subcategory.component';
+import { ProductsProvinceComponent } from './core/components/products-province/products-province.component';
+import { ProductsTownComponent } from './core/components/products-town/products-town.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { ProductsSubcategoryComponent } from './core/components/products-subcate
     ProductsCategoryComponent,
     LoginComponent,
     LogoutComponent,
-    ProductsSubcategoryComponent
+    ProductsSubcategoryComponent,
+    ProductsProvinceComponent,
+    ProductsTownComponent
   ],
   imports: [
     BrowserModule,
