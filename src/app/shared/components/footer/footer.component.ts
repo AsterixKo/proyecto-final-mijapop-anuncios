@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryModel } from 'src/app/models/category.model';
+import { MijapopService } from 'src/app/services/mijapop.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  categoryArray: CategoryModel[];
+  townArray: string[];
+
+  constructor(private mijapopService: MijapopService) { }
 
   ngOnInit(): void {
+    this.categoryArray = this.mijapopService.getCategories();
+    this.townArray = this.mijapopService.getTownsFooter();
   }
 
 }

@@ -1,1 +1,82 @@
-<p>footer works!</p>
+<div class="footer-main-container">
+  <div class="container">
+    <div class="row fila">
+      <div class="col columna d-flex justify-content-center mt-3">
+        <h3>Categorías</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col d-flex flex-wrap">
+        <div class="m-1" *ngFor="let category of categoryArray">
+          <a [routerLink]="['/products-category', category.name]" class="btn btn-success">
+            <h6>{{category.name}}</h6>
+          </a>
+          <div *ngFor="let subcategory of category.subcategories">
+            <a [routerLink]="['/products-subcategory', subcategory.name]"><span>{{subcategory.name}}</span></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12 col-md-6 mt-3">
+        <h6>Ciudades</h6>
+        <div class="d-flex flex-wrap">
+          <div *ngFor="let town of this.townArray">
+            <a class="small" [routerLink]="['/products-town', town]"><span>{{town}},&nbsp;</span></a>
+          </div>
+        </div>
+        <div>
+          <a class="small" href="#">Ver todas las ciudades</a>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 mt-3">
+        <h6>Mijapop y la seguda mano</h6>
+        <p class="mijapop-text small">“Si no lo usas, súbelo”. Bajo esta premisa, wallapop se ha convertido en una
+          comunidad en la que cada día
+          millones de personas compran y venden productos de segunda mano. Y no hemos hecho más que empezar. Comprar
+          segunda mano es la mejor forma de conseguir lo que necesitas a un precio mejor. ¡Pero va mucho más allá! Cada
+          vez que compras algo en wallapop, fomentas un consumo más responsable, porque alargas la vida de los productos
+          y evitas su sobreproducción. Vender segunda mano es decirle al mundo que podemos vivir más con menos. Más
+          espacio en casa, más dinero extra, más nuevas experiencias, más recuerdos inolvidables, más lo que quieras, y
+          menos cosas sin usar guardadas en el armario. Por fin, la sociedad ha comprendido que la segunda mano es una
+          nueva forma de consumir llena de beneficios. Esta es la razón por la que cada vez más personas usan wallapop,
+          la plataforma líder de las páginas de segunda mano y de anuncios clasificados.</p>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-sm-12 col-md-3">
+        <a class="navbar-brand" routerLink="/home"><img src="assets/image/logo.svg"></a>
+        <p class="small text-white">Copyright © 2020 mijapop © de sus respectivos propietarios</p>
+      </div>
+      <div class="col-sm-12 col-md-3">
+        <h6>Mijapop</h6>
+        <ul>
+          <li><a href="#">¿Quiénes somos?</a></li>
+          <li><a href="#">Prensa</a></li>
+          <li><a href="#">Empleo</a></li>
+          <li><a href="#">Equipo</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-12 col-md-3">
+        <h6>Soporte</h6>
+        <ul>
+          <li><a href="#">Preguntas Frecuentes</a></li>
+          <li><a href="#">Reglas de publicación</a></li>
+          <li><a href="#">Consejos de seguridad</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-12 col-md-3">
+        <h6>Legal</h6>
+        <ul>
+          <li><a href="#">Condiciones de uso</a></li>
+          <li><a href="#">Política de Privacidad</a></li>
+          <li><a href="#">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
