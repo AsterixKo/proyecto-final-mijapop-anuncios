@@ -1,7 +1,8 @@
-export class ProductModel {
+export class ProductFavoriteModel {
     private _id: string;
     private _idCategory: string;
     private _idSubcategory: string;
+    private _idUserFavorite: string;
     private _idUserOwner: string;
     private _userNameOwner: string;
     private _name: string;
@@ -24,10 +25,11 @@ export class ProductModel {
     private _photo10: string;
 
 
-    constructor(id: string, idCategory: string, idSubcategory: string, idUserOwner: string, userNameOwner: string, name: string, description: string, price: number, currency: string, productStatus: string, province: string, town: string, isSold: boolean, photo1: string, photo2: string, photo3: string, photo4: string, photo5: string, photo6: string, photo7: string, photo8: string, photo9: string, photo10: string) {
+    constructor(id: string, idCategory: string, idSubcategory: string, idUserFavorite: string, idUserOwner: string, userNameOwner: string, name: string, description: string, price: number, currency: string, productStatus: string, province: string, town: string, isSold: boolean, photo1: string, photo2: string, photo3: string, photo4: string, photo5: string, photo6: string, photo7: string, photo8: string, photo9: string, photo10: string) {
         this._id = id;
         this._idCategory = idCategory;
         this._idSubcategory = idSubcategory;
+        this._idUserFavorite = idUserFavorite;
         this._idUserOwner = idUserOwner;
         this._userNameOwner = userNameOwner;
         this._name = name;
@@ -73,6 +75,14 @@ export class ProductModel {
      */
     public get idSubcategory(): string {
         return this._idSubcategory;
+    }
+
+    /**
+     * Getter idUserFavorite
+     * @return {string}
+     */
+    public get idUserFavorite(): string {
+        return this._idUserFavorite;
     }
 
     /**
@@ -260,6 +270,14 @@ export class ProductModel {
     }
 
     /**
+     * Setter idUserFavorite
+     * @param {string} value
+     */
+    public set idUserFavorite(value: string) {
+        this._idUserFavorite = value;
+    }
+
+    /**
      * Setter idUserOwner
      * @param {string} value
      */
@@ -418,6 +436,5 @@ export class ProductModel {
     public set photo10(value: string) {
         this._photo10 = value;
     }
-
 
 }
