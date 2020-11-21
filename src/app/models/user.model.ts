@@ -11,9 +11,9 @@ export class UserModel {
     private _gender: string;
     private _dateBirth: Date;
     private _srcImage: string;
+    private _containsImage: boolean;
 
-
-    constructor(id: string, email: string, password: string, name: string, lastName: string, location: string, description: string, callSchedule: string, phone: string, gender: string, dateBirth: Date, srcImage: string) {
+    constructor(id: string, email: string, password: string, name: string, lastName: string, location: string, description: string, callSchedule: string, phone: string, gender: string, dateBirth: Date, srcImage: string, containsImage: boolean) {
         this._id = id;
         this._email = email;
         this._password = password;
@@ -26,6 +26,7 @@ export class UserModel {
         this._gender = gender;
         this._dateBirth = dateBirth;
         this._srcImage = srcImage;
+        this._containsImage = containsImage;
     }
 
 
@@ -126,6 +127,14 @@ export class UserModel {
     }
 
     /**
+     * Getter containsImage
+     * @return {boolean}
+     */
+    public get containsImage(): boolean {
+        return this._containsImage;
+    }
+
+    /**
      * Setter id
      * @param {string} value
      */
@@ -219,6 +228,14 @@ export class UserModel {
      */
     public set srcImage(value: string) {
         this._srcImage = value;
+    }
+
+    /**
+     * Setter containsImage
+     * @param {boolean} value
+     */
+    public set containsImage(value: boolean) {
+        this._containsImage = value;
     }
 
 

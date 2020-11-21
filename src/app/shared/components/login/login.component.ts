@@ -12,7 +12,7 @@ import { HeaderNavBarService } from 'src/app/services/header-nav-bar.service';
 })
 export class LoginComponent implements OnInit {
 
-  user: UserModel = new UserModel('', '', '', '', '', '', '', '', '', '', new Date(), '');
+  user: UserModel = new UserModel('', '', '', '', '', '', '', '', '', '', new Date(), '', false);
 
   constructor(private auth: AuthService, private router: Router, private headerNavBarService: HeaderNavBarService) { }
 
