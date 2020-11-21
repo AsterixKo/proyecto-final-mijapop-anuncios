@@ -155,7 +155,7 @@ export class MijapopService implements OnInit {
     // }
 
     return new Promise((resolve, reject) => {
-      
+
       // if (control.value) {
       //   if (this.userArray) {
       //     const userArrayFound = this.userArray.filter((value) => value.email === control.value);
@@ -167,5 +167,16 @@ export class MijapopService implements OnInit {
       // }
       resolve(null);
     });
+  }
+
+  findUserByEmail(email: string): UserModel {
+    const userArrayFound = this.userArray.filter((value) => value.email === email);
+    if (userArrayFound && userArrayFound.length > 0) {
+      console.log('Se ha encontrado un usuario con este email', email);
+      return userArrayFound[0];
+    } else {
+      console.log('No se ha encontrado un usuario con este email');
+      return null;
+    }
   }
 }
