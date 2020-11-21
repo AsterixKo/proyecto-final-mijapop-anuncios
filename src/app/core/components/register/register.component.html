@@ -86,7 +86,7 @@
 <div class="container mb-3" *ngIf="isCorrectRegistration">
   <div class="row">
     <div class="col">
-      <h1>Gracias por registrate , empieza iniciando sesión</h1>
+      <h1>Gracias por registrate {{this.name}}, empieza iniciando sesión</h1>
       <hr>
       <a routerLink="/login" class="btn btn-block btn-primary">Iniciar sesión</a>
     </div>

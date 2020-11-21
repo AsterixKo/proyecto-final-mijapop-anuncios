@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
 
   forma: FormGroup;
   isCorrectRegistration: boolean = false;
+  name: string = '';
   private formSubmitAttempt: boolean = false;
 
   constructor(private fb: FormBuilder, private mijapopService: MijapopService) {
@@ -77,10 +78,12 @@ export class RegisterComponent implements OnInit {
         this.forma.get('image').value,
         containsImage);
       this.mijapopService.registerNewUser(userNew);
+      this.name=this.forma.get('name').value;
 
       this.forma.reset();
 
-      this.isCorrectRegistration= true;
+      this.isCorrectRegistration = true;
+      
     } else {
       if (this.forma.status === 'INVALID') {
         console.log('Formulario INVALID');
