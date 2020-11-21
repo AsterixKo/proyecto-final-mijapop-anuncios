@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserModel } from 'src/app/models/user.model';
 import { MijapopService } from 'src/app/services/mijapop.service';
+import * as uuid from 'uuid';
 
 @Component({
   selector: 'app-register',
@@ -12,9 +13,10 @@ export class RegisterComponent implements OnInit {
 
   forma: FormGroup;
   private formSubmitAttempt: boolean = false;
+  private isCorrectRegistration: boolean = false;
 
   constructor(private fb: FormBuilder, private mijapopService: MijapopService) {
-    
+
   }
 
   ngOnInit(): void {
@@ -49,8 +51,42 @@ export class RegisterComponent implements OnInit {
     this.formSubmitAttempt = true;
     console.log(this.forma);
 
-    // const userNew = new UserModel();
-    // this.mijapopService.registerNewUser();
+    if (this.forma.status === 'VALID') {
+      console.log('image:', this.forma.get('image').value);
+      let containsImage = false;
+      if (this.forma.get('image').value) {
+        console.log('contiene imagen');
+        containsImage = true;
+      } else {
+        console.log('No contiene imagen');
+        containsImage = false;
+      }
+
+      const userNew = new UserModel(
+        uuid.v4(),
+        this.forma.get('email').value,
+        this.forma.get('password').value,
+        this.forma.get('name').value,
+        this.forma.get('lastName').value,
+        this.forma.get('location').value,
+        this.forma.get('description').value,
+        this.forma.get('callSchedule').value,
+        this.forma.get('phone').value,
+        '',
+        this.forma.get('dateBirth').value,
+        this.forma.get('image').value,
+        containsImage);
+      this.mijapopService.registerNewUser(userNew);
+
+      this.forma.reset();
+
+    } else {
+      if (this.forma.status === 'INVALID') {
+        console.log('Formulario INVALID');
+      }
+    }
+
+
 
     // this.loadDataToForm();
 
