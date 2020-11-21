@@ -12,8 +12,8 @@ import * as uuid from 'uuid';
 export class RegisterComponent implements OnInit {
 
   forma: FormGroup;
+  isCorrectRegistration: boolean = false;
   private formSubmitAttempt: boolean = false;
-  private isCorrectRegistration: boolean = false;
 
   constructor(private fb: FormBuilder, private mijapopService: MijapopService) {
 
@@ -80,6 +80,7 @@ export class RegisterComponent implements OnInit {
 
       this.forma.reset();
 
+      this.isCorrectRegistration= true;
     } else {
       if (this.forma.status === 'INVALID') {
         console.log('Formulario INVALID');
