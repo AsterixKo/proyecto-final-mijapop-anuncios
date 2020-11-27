@@ -1,1 +1,83 @@
-<p>profile works!</p>
+<form autocomplete="off" [formGroup]="forma" (ngSubmit)="saveForm()" *ngIf="!isCorrectRegistration">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>Aquí podrás ver y editar los datos de tu perfil</h1>
+          <hr>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col form-group">
+          <label for="inputName">Nombre</label>
+          <input type="text" class="form-control" id="inputName" formControlName="name"
+            [class.is-invalid]="isFieldInvalid('name')">
+          <small class="form-text text-danger" *ngIf="isFieldInvalid('name')">El nombre debe tener al menos 3
+            letras</small>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col form-group">
+          <label for="inputLastName">Apellido</label>
+          <input type="text" class="form-control" id="inputLastName" formControlName="lastName">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col form-group">
+          <label for="inputLocation">Dirección</label>
+          <input type="text" class="form-control" id="inputLocation" formControlName="location">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col form-group">
+          <label for="inputDescription">Descripción</label>
+          <input type="text" class="form-control" id="inputDescription" formControlName="description">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col form-group">
+          <label for="inputPhone">Teléfono</label>
+          <input type="text" class="form-control" id="inputPhone" formControlName="phone">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col form-group">
+          <label for="inputCallSchedule">Horario de llamada</label>
+          <input type="text" class="form-control" id="inputCallSchedule" formControlName="callSchedule">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col form-group">
+          <label for="inputDateBirth">Fecha de nacimiento</label>
+          <input type="date" class="form-control" id="inputDateBirth" formControlName="dateBirth">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col form-group">
+          <label for="inputImage">Imagen</label>
+          <input type="text" class="form-control" id="inputImage" formControlName="image">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col form-group">
+          <label for="inputEmail">Email</label>
+          <input type="text" class="form-control" id="inputEmail" formControlName="email" readonly>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col form-group">
+          <button type="submit" class="btn btn-block btn-primary">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+  <div class="container mb-3" *ngIf="isCorrectRegistration">
+    <div class="row">
+      <div class="col">
+        <h1>{{this.name}}, los cambios se han llevado a cabo correctamente</h1>
+        <hr>
+      </div>
+    </div>
+  </div>
+  
