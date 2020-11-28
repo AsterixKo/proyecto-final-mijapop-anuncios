@@ -9,6 +9,7 @@ import { UserModel } from '../models/user.model';
 export class MijapopService implements OnInit {
 
   private categoryArray: CategoryModel[] = [];
+  private subCategoryArray: SubcategoryModel[] = [];
   private townArray: string[] = [];
   private userArray: UserModel[] = [];
 
@@ -23,6 +24,9 @@ export class MijapopService implements OnInit {
         subcategoryCoches2,
         subcategoryCoches3]);
     this.categoryArray.push(categoryCoches);
+    this.subCategoryArray.push(subcategoryCoches1);
+    this.subCategoryArray.push(subcategoryCoches2);
+    this.subCategoryArray.push(subcategoryCoches3);
 
     //subcategories de motos
     const subcategoryMotos1 = new SubcategoryModel('b3d6cea2-685f-4d89-b206-25e6b639b888', 'c1f83b11-4f2a-4ed1-9bf0-791aa6631519', 'Derbi Senda', 'Derbi senda en venta');
@@ -34,6 +38,9 @@ export class MijapopService implements OnInit {
         subcategoryMotos2,
         subcategoryMotos3]);
     this.categoryArray.push(categoryMotos);
+    this.subCategoryArray.push(subcategoryMotos1);
+    this.subCategoryArray.push(subcategoryMotos2);
+    this.subCategoryArray.push(subcategoryMotos3);
 
     this.townArray = [
       'Madrid',
@@ -81,6 +88,22 @@ export class MijapopService implements OnInit {
 
   getCategories(): CategoryModel[] {
     return this.categoryArray;
+  }
+
+  getSubcategoriesByCategoryId(categoryId: string): SubcategoryModel[] {
+    console.log('categoryId:' + categoryId);
+    console.log('all subcategories:', this.subCategoryArray);
+    // const subcategoriesFound = this.subCategoryArray.filter((value) => {
+    //   value.idCategory === categoryId
+    // });
+    let subcategoriesFound: SubcategoryModel[] = [];
+    for (const item of this.subCategoryArray) {
+      if (item.idCategory === categoryId) {
+        subcategoriesFound.push(item);
+      }
+    }
+    console.log('subcategoriesFound:', subcategoriesFound);
+    return subcategoriesFound;
   }
 
   getTownsFooter(): string[] {
