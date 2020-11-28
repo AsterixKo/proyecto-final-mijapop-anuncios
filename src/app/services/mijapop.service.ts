@@ -93,15 +93,7 @@ export class MijapopService implements OnInit {
   getSubcategoriesByCategoryId(categoryId: string): SubcategoryModel[] {
     console.log('categoryId:' + categoryId);
     console.log('all subcategories:', this.subCategoryArray);
-    // const subcategoriesFound = this.subCategoryArray.filter((value) => {
-    //   value.idCategory === categoryId
-    // });
-    let subcategoriesFound: SubcategoryModel[] = [];
-    for (const item of this.subCategoryArray) {
-      if (item.idCategory === categoryId) {
-        subcategoriesFound.push(item);
-      }
-    }
+    const subcategoriesFound = this.subCategoryArray.filter((value) => value.idCategory === categoryId);
     console.log('subcategoriesFound:', subcategoriesFound);
     return subcategoriesFound;
   }
