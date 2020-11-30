@@ -61,6 +61,28 @@
     </div>
     <div class="form-row">
       <div class="col form-group">
+        <label for="inputProvince">Provincia</label>
+        <select id="inputProvince" formControlName="province"
+        class="form-control"
+        [class.is-invalid]="isFieldInvalid('province')">
+          <option [ngValue]="null" disabled>Selecciona una provincia</option>
+          <option *ngFor="let province of this.provinces" [value]="province.id">
+            {{province.name}}
+          </option>
+        </select>
+        <small class="form-text text-danger" *ngIf="isFieldInvalid('province')">La provincia es requerida</small>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputTown">Municipio</label>
+        <input type="text" class="form-control" id="inputTown" formControlName="town"
+          [class.is-invalid]="isFieldInvalid('town')">
+        <small class="form-text text-danger" *ngIf="isFieldInvalid('town')">El municipio es requerido</small>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
         <label for="inputPhoto1">Foto 1</label>
         <input type="text" class="form-control" id="inputPhoto1" formControlName="photo1"
           [class.is-invalid]="isFieldInvalid('photo1')">
@@ -135,7 +157,7 @@
     <div class="col">
       <h1>Tu producto {{this.productName}} se ha subido correctamente. Gracias {{this.userName}}.</h1>
       <hr>
-      <a routerLink="/upload-product" class="btn btn-block btn-primary">Subir nuevo producto</a>
+      <a routerLink="/upload-product" (click)="refreshIsCorrectUpload()" class="btn btn-block btn-primary">Subir nuevo producto</a>
     </div>
   </div>
 </div>

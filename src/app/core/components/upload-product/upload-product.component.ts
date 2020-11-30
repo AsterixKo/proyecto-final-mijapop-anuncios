@@ -6,6 +6,7 @@ import { CategoryModel } from 'src/app/models/category.model';
 import { MijapopService } from 'src/app/services/mijapop.service';
 import * as uuid from 'uuid';
 import { SubcategoryModel } from 'src/app/models/subcategory.model';
+import { ProvinceModel } from 'src/app/models/province.model';
 
 @Component({
   selector: 'app-upload-product',
@@ -20,6 +21,7 @@ export class UploadProductComponent implements OnInit {
   productName: string = '';
   categories: CategoryModel[] = [];
   subcategories: SubcategoryModel[] = [];
+  provinces: ProvinceModel[] = [];
   private formSubmitAttempt: boolean = false;
 
   constructor(private fb: FormBuilder, private mijapopService: MijapopService) { }
@@ -27,6 +29,7 @@ export class UploadProductComponent implements OnInit {
   ngOnInit(): void {
     this.createForm();
     this.categories = this.mijapopService.getCategories();
+    this.provinces = this.mijapopService.getProvincesOrderedByName();
   }
 
   createForm() {
@@ -36,6 +39,8 @@ export class UploadProductComponent implements OnInit {
       description: ['', []],
       category: [null, [Validators.required]],
       subcategory: [null, [Validators.required]],
+      province: [null, [Validators.required]],
+      town: [null, [Validators.required]],
       photo1: ['', [Validators.required]],
       photo2: ['', []],
       photo3: ['', []],
@@ -90,7 +95,7 @@ export class UploadProductComponent implements OnInit {
       this.forma.reset();
 
       this.isCorrectUpload = true;
-
+      this.formSubmitAttempt=false;
     } else {
       if (this.forma.status === 'INVALID') {
         console.log('Formulario INVALID');
@@ -106,5 +111,9 @@ export class UploadProductComponent implements OnInit {
   onCategorySelected(value: string) {
     console.log("the selected category is", value);
     this.subcategories = this.mijapopService.getSubcategoriesByCategoryId(value);
+  }
+
+  refreshIsCorrectUpload(){
+    this.isCorrectUpload = false;
   }
 }
