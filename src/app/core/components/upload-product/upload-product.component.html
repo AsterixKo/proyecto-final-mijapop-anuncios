@@ -66,11 +66,25 @@
         class="form-control"
         [class.is-invalid]="isFieldInvalid('province')">
           <option [ngValue]="null" disabled>Selecciona una provincia</option>
-          <option *ngFor="let province of this.provinces" [value]="province.id">
+          <option *ngFor="let province of this.provinces" [value]="province.name">
             {{province.name}}
           </option>
         </select>
         <small class="form-text text-danger" *ngIf="isFieldInvalid('province')">La provincia es requerida</small>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputProductStatus">Estado del producto</label>
+        <select id="inputProductStatus" formControlName="productStatus"
+        class="form-control"
+        [class.is-invalid]="isFieldInvalid('productStatus')">
+          <option [ngValue]="null" disabled>Selecciona un estado</option>
+          <option *ngFor="let productStatus of this.productStatusArray" [value]="productStatus.name">
+            {{productStatus.name}}
+          </option>
+        </select>
+        <small class="form-text text-danger" *ngIf="isFieldInvalid('productStatus')">El estado del producto es requerido</small>
       </div>
     </div>
     <div class="form-row">

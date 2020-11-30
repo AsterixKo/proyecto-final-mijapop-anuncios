@@ -1,5 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { CategoryModel } from '../models/category.model';
+import { ProductStatusModel } from '../models/product-status.model';
+import { ProductModel } from '../models/product.model';
 import { ProvinceModel } from '../models/province.model';
 import { SubcategoryModel } from '../models/subcategory.model';
 import { UserModel } from '../models/user.model';
@@ -14,6 +16,8 @@ export class MijapopService implements OnInit {
   private townArray: string[] = [];
   private userArray: UserModel[] = [];
   private provinceArray: ProvinceModel[] = [];
+  private productStatusArray: ProductStatusModel[] = [];
+  private productsArray: ProductModel[] = [];
 
   constructor() {
     //subcategories de coches
@@ -137,6 +141,12 @@ export class MijapopService implements OnInit {
     this.provinceArray.push(new ProvinceModel('51', 'Ceuta'));
     this.provinceArray.push(new ProvinceModel('52', 'Melilla'));
 
+    this.productStatusArray.push(new ProductStatusModel('1', '1', 'Nuevo'));
+    this.productStatusArray.push(new ProductStatusModel('2', '1', 'Como nuevo'));
+    this.productStatusArray.push(new ProductStatusModel('3', '1', 'Bueno'));
+    this.productStatusArray.push(new ProductStatusModel('4', '1', 'Aceptable'));
+    this.productStatusArray.push(new ProductStatusModel('5', '1', 'Lo ha dado todo'));
+
   }
   ngOnInit(): void {
 
@@ -254,5 +264,13 @@ export class MijapopService implements OnInit {
   getProvincesOrderedByName(): ProvinceModel[] {
     const provincesOrdered = this.provinceArray.sort((a: ProvinceModel, b: ProvinceModel) => (a.name > b.name) ? 1 : -1);
     return provincesOrdered;
+  }
+
+  getAllProductStatus(): ProductStatusModel[]{
+    return this.productStatusArray;
+  }
+
+  addNewProduct(product: ProductModel){
+    this.productsArray.push(product);
   }
 }
