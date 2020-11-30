@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { CategoryModel } from '../models/category.model';
+import { ProvinceModel } from '../models/province.model';
 import { SubcategoryModel } from '../models/subcategory.model';
 import { UserModel } from '../models/user.model';
 
@@ -12,6 +13,7 @@ export class MijapopService implements OnInit {
   private subCategoryArray: SubcategoryModel[] = [];
   private townArray: string[] = [];
   private userArray: UserModel[] = [];
+  private provinceArray: ProvinceModel[] = [];
 
   constructor() {
     //subcategories de coches
@@ -81,6 +83,60 @@ export class MijapopService implements OnInit {
 
     const user = new UserModel('64414115-079e-4c86-a506-c120ed59f5ae', 'prueba@prueba.com', '1234', 'Juan', 'García', 'Madrid', '', 'de 9 ha 13:00', '73645645', 'hombre', new Date(), '', false);
     this.userArray.push(user);
+
+    this.provinceArray.push(new ProvinceModel('1', 'Almería'));
+    this.provinceArray.push(new ProvinceModel('2', 'Cádiz'));
+    this.provinceArray.push(new ProvinceModel('3', 'Córdoba'));
+    this.provinceArray.push(new ProvinceModel('4', 'Granada'));
+    this.provinceArray.push(new ProvinceModel('5', 'Huelva'));
+    this.provinceArray.push(new ProvinceModel('6', 'Jaén'));
+    this.provinceArray.push(new ProvinceModel('7', 'Málaga'));
+    this.provinceArray.push(new ProvinceModel('8', 'Sevilla'));
+    this.provinceArray.push(new ProvinceModel('9', 'Huesca'));
+    this.provinceArray.push(new ProvinceModel('10', 'Teruel'));
+    this.provinceArray.push(new ProvinceModel('11', 'Zaragoza'));
+    this.provinceArray.push(new ProvinceModel('12', 'Asturias'));
+    this.provinceArray.push(new ProvinceModel('13', 'Balears, Illes'));
+    this.provinceArray.push(new ProvinceModel('14', 'Palmas, Las'));
+    this.provinceArray.push(new ProvinceModel('15', 'Santa Cruz de Tenerife'));
+    this.provinceArray.push(new ProvinceModel('16', 'Cantabria'));
+    this.provinceArray.push(new ProvinceModel('17', 'Ávila'));
+    this.provinceArray.push(new ProvinceModel('18', 'Burgos'));
+    this.provinceArray.push(new ProvinceModel('19', 'León'));
+    this.provinceArray.push(new ProvinceModel('20', 'Palencia'));
+    this.provinceArray.push(new ProvinceModel('21', 'Salamanca'));
+    this.provinceArray.push(new ProvinceModel('22', 'Segovia'));
+    this.provinceArray.push(new ProvinceModel('23', 'Soria'));
+    this.provinceArray.push(new ProvinceModel('24', 'Valladolid'));
+    this.provinceArray.push(new ProvinceModel('25', 'Zamora'));
+    this.provinceArray.push(new ProvinceModel('26', 'Albacete'));
+    this.provinceArray.push(new ProvinceModel('27', 'Ciudad Real'));
+    this.provinceArray.push(new ProvinceModel('28', 'Cuenca'));
+    this.provinceArray.push(new ProvinceModel('29', 'Guadalajara'));
+    this.provinceArray.push(new ProvinceModel('30', 'Toledo'));
+    this.provinceArray.push(new ProvinceModel('31', 'Barcelona'));
+    this.provinceArray.push(new ProvinceModel('32', 'Girona'));
+    this.provinceArray.push(new ProvinceModel('33', 'Lleida'));
+    this.provinceArray.push(new ProvinceModel('34', 'Tarragona'));
+    this.provinceArray.push(new ProvinceModel('35', 'Alicante/Alacant'));
+    this.provinceArray.push(new ProvinceModel('36', 'Castellón/Castelló'));
+    this.provinceArray.push(new ProvinceModel('37', 'Valencia/València'));
+    this.provinceArray.push(new ProvinceModel('38', 'Badajoz'));
+    this.provinceArray.push(new ProvinceModel('39', 'Cáceres'));
+    this.provinceArray.push(new ProvinceModel('40', 'Coruña, A'));
+    this.provinceArray.push(new ProvinceModel('41', 'Lugo'));
+    this.provinceArray.push(new ProvinceModel('42', 'Ourense'));
+    this.provinceArray.push(new ProvinceModel('43', 'Pontevedra'));
+    this.provinceArray.push(new ProvinceModel('44', 'Madrid'));
+    this.provinceArray.push(new ProvinceModel('45', 'Murcia'));
+    this.provinceArray.push(new ProvinceModel('46', 'Navarra'));
+    this.provinceArray.push(new ProvinceModel('47', 'Araba/Álava'));
+    this.provinceArray.push(new ProvinceModel('48', 'Bizkaia'));
+    this.provinceArray.push(new ProvinceModel('49', 'Gipuzkoa'));
+    this.provinceArray.push(new ProvinceModel('50', 'Rioja, La'));
+    this.provinceArray.push(new ProvinceModel('51', 'Ceuta'));
+    this.provinceArray.push(new ProvinceModel('52', 'Melilla'));
+
   }
   ngOnInit(): void {
 
@@ -193,5 +249,10 @@ export class MijapopService implements OnInit {
       console.log('No se ha encontrado un usuario con este email');
       return null;
     }
+  }
+
+  getProvincesOrderedByName(): ProvinceModel[] {
+    const provincesOrdered = this.provinceArray.sort((a: ProvinceModel, b: ProvinceModel) => (a.name > b.name) ? 1 : -1);
+    return provincesOrdered;
   }
 }
