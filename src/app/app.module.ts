@@ -24,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsSubcategoryComponent } from './core/components/products-subcategory/products-subcategory.component';
 import { ProductsProvinceComponent } from './core/components/products-province/products-province.component';
 import { ProductsTownComponent } from './core/components/products-town/products-town.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { ProductsTownComponent } from './core/components/products-town/products-
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

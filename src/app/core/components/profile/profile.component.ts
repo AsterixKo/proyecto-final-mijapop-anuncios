@@ -15,21 +15,45 @@ export class ProfileComponent implements OnInit {
   isCorrectRegistration: boolean = false;
   name: string = '';
   private formSubmitAttempt: boolean = false;
-  private currentUser: UserModel;
+  currentUser: UserModel;
 
   constructor(private fb: FormBuilder, private mijapopService: MijapopService) {
 
   }
     
 
-  ngOnInit(): void {
-    const email = localStorage.getItem('email');
-    this.currentUser = this.mijapopService.findUserByEmail(email);
-
+ ngOnInit(): void {
+    // const email = localStorage.getItem('email');
+    // this.currentUser = this.mijapopService.findUserByEmail(email);
+    
     this.createForm(); 
   }
 
-  createForm() {
+  async createForm() {
+    const email = localStorage.getItem('email');
+    let userFound: UserModel;
+    await this.mijapopService.findUserByEmail(email).toPromise().then((data)=>{
+      console.log('data:', data);
+      console.log('data.password', data["_password"]);
+      this.currentUser = new UserModel(
+        data["_id"],
+        data["_email"],
+        data["_password"],
+        data["_name"],
+        data["_lastName"],
+        data["_location"],
+        data["_description"],
+        data["_callSchedule"],
+        data["_phone"],
+        data["_gender"],
+        data["_dateBirth"],
+        data["_srcImage"],
+        data["_containsImage"]);
+    }).catch((error)=>{
+      console.log('error:', error);
+      return false;
+    });
+
     this.forma = this.fb.group({
       name: [this.currentUser.name, [Validators.required, Validators.minLength(3)]],
       lastName: [this.currentUser.lastName],

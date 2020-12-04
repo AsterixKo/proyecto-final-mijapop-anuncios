@@ -1,48 +1,83 @@
+import { CategoryModel } from './category.model';
+
 export class SubcategoryModel {
     private _id: string;
-    private _idCategory: string;
+    private _category: CategoryModel;
     private _name: string;
     private _description: string;
 
-    constructor(id: string,
-        idCategory: string,
-        name: string,
-        description: string) {
-        this._id = id;
-        this._idCategory = idCategory;
-        this._name = name;
-        this._description = description;
-    }
 
-    get id(): string {
-        return this._id;
-    }
 
-    set id(id: string) {
-        this._id = id;
-    }
+	constructor(id: string, category: CategoryModel, name: string, description: string) {
+		this._id = id;
+		this._category = category;
+		this._name = name;
+		this._description = description;
+	}
 
-    get idCategory(): string {
-        return this._idCategory;
-    }
+    /**
+     * Getter id
+     * @return {string}
+     */
+	public get id(): string {
+		return this._id;
+	}
 
-    set idCategory(idCategory: string) {
-        this._idCategory = idCategory;
-    }
+    /**
+     * Getter category
+     * @return {CategoryModel}
+     */
+	public get category(): CategoryModel {
+		return this._category;
+	}
 
-    get name(): string {
-        return this._name;
-    }
+    /**
+     * Getter name
+     * @return {string}
+     */
+	public get name(): string {
+		return this._name;
+	}
 
-    set name(name: string) {
-        this._name = name;
-    }
+    /**
+     * Getter description
+     * @return {string}
+     */
+	public get description(): string {
+		return this._description;
+	}
 
-    get description(): string {
-        return this._description;
-    }
+    /**
+     * Setter id
+     * @param {string} value
+     */
+	public set id(value: string) {
+		this._id = value;
+	}
 
-    set description(description: string) {
-        this._description = description;
-    }
+    /**
+     * Setter category
+     * @param {CategoryModel} value
+     */
+	public set category(value: CategoryModel) {
+		this._category = value;
+	}
+
+    /**
+     * Setter name
+     * @param {string} value
+     */
+	public set name(value: string) {
+		this._name = value;
+	}
+
+    /**
+     * Setter description
+     * @param {string} value
+     */
+	public set description(value: string) {
+		this._description = value;
+	}
+	
+
 }

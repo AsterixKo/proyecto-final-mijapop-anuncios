@@ -19,12 +19,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(data: NgForm) {
+  async login(data: NgForm) {
     // console.log('Intento de login:');
     // console.log(data);
 
     // console.log('User', this.user);
-    const loginResult = this.auth.login(this.user);
+    const loginResult = await this.auth.login(this.user);
     console.log('El resultado de login result es:', loginResult);
 
     if (loginResult) {
