@@ -1,5 +1,8 @@
 import { Injectable, OnInit } from '@angular/core';
 import { CategoryModel } from '../models/category.model';
+import { ProductStatusModel } from '../models/product-status.model';
+import { ProductModel } from '../models/product.model';
+import { ProvinceModel } from '../models/province.model';
 import { SubcategoryModel } from '../models/subcategory.model';
 import { UserModel } from '../models/user.model';
 
@@ -8,8 +11,12 @@ import { UserModel } from '../models/user.model';
 })
 export class MijapopService implements OnInit {
   private categoryArray: CategoryModel[] = [];
+  private subCategoryArray: SubcategoryModel[] = [];
   private townArray: string[] = [];
   private userArray: UserModel[] = [];
+  private provinceArray: ProvinceModel[] = [];
+  private productStatusArray: ProductStatusModel[] = [];
+  private productsArray: ProductModel[] = [];
 
   constructor() {
     //subcategories de coches
@@ -39,6 +46,9 @@ export class MijapopService implements OnInit {
       [subcategoryCoches1, subcategoryCoches2, subcategoryCoches3]
     );
     this.categoryArray.push(categoryCoches);
+    this.subCategoryArray.push(subcategoryCoches1);
+    this.subCategoryArray.push(subcategoryCoches2);
+    this.subCategoryArray.push(subcategoryCoches3);
 
     //subcategories de motos
     const subcategoryMotos1 = new SubcategoryModel(
@@ -67,6 +77,9 @@ export class MijapopService implements OnInit {
       [subcategoryMotos1, subcategoryMotos2, subcategoryMotos3]
     );
     this.categoryArray.push(categoryMotos);
+    this.subCategoryArray.push(subcategoryMotos1);
+    this.subCategoryArray.push(subcategoryMotos2);
+    this.subCategoryArray.push(subcategoryMotos3);
 
     this.townArray = [
       'Madrid',
@@ -121,11 +134,79 @@ export class MijapopService implements OnInit {
       false
     );
     this.userArray.push(user);
+
+    this.provinceArray.push(new ProvinceModel('1', 'Almería'));
+    this.provinceArray.push(new ProvinceModel('2', 'Cádiz'));
+    this.provinceArray.push(new ProvinceModel('3', 'Córdoba'));
+    this.provinceArray.push(new ProvinceModel('4', 'Granada'));
+    this.provinceArray.push(new ProvinceModel('5', 'Huelva'));
+    this.provinceArray.push(new ProvinceModel('6', 'Jaén'));
+    this.provinceArray.push(new ProvinceModel('7', 'Málaga'));
+    this.provinceArray.push(new ProvinceModel('8', 'Sevilla'));
+    this.provinceArray.push(new ProvinceModel('9', 'Huesca'));
+    this.provinceArray.push(new ProvinceModel('10', 'Teruel'));
+    this.provinceArray.push(new ProvinceModel('11', 'Zaragoza'));
+    this.provinceArray.push(new ProvinceModel('12', 'Asturias'));
+    this.provinceArray.push(new ProvinceModel('13', 'Balears, Illes'));
+    this.provinceArray.push(new ProvinceModel('14', 'Palmas, Las'));
+    this.provinceArray.push(new ProvinceModel('15', 'Santa Cruz de Tenerife'));
+    this.provinceArray.push(new ProvinceModel('16', 'Cantabria'));
+    this.provinceArray.push(new ProvinceModel('17', 'Ávila'));
+    this.provinceArray.push(new ProvinceModel('18', 'Burgos'));
+    this.provinceArray.push(new ProvinceModel('19', 'León'));
+    this.provinceArray.push(new ProvinceModel('20', 'Palencia'));
+    this.provinceArray.push(new ProvinceModel('21', 'Salamanca'));
+    this.provinceArray.push(new ProvinceModel('22', 'Segovia'));
+    this.provinceArray.push(new ProvinceModel('23', 'Soria'));
+    this.provinceArray.push(new ProvinceModel('24', 'Valladolid'));
+    this.provinceArray.push(new ProvinceModel('25', 'Zamora'));
+    this.provinceArray.push(new ProvinceModel('26', 'Albacete'));
+    this.provinceArray.push(new ProvinceModel('27', 'Ciudad Real'));
+    this.provinceArray.push(new ProvinceModel('28', 'Cuenca'));
+    this.provinceArray.push(new ProvinceModel('29', 'Guadalajara'));
+    this.provinceArray.push(new ProvinceModel('30', 'Toledo'));
+    this.provinceArray.push(new ProvinceModel('31', 'Barcelona'));
+    this.provinceArray.push(new ProvinceModel('32', 'Girona'));
+    this.provinceArray.push(new ProvinceModel('33', 'Lleida'));
+    this.provinceArray.push(new ProvinceModel('34', 'Tarragona'));
+    this.provinceArray.push(new ProvinceModel('35', 'Alicante/Alacant'));
+    this.provinceArray.push(new ProvinceModel('36', 'Castellón/Castelló'));
+    this.provinceArray.push(new ProvinceModel('37', 'Valencia/València'));
+    this.provinceArray.push(new ProvinceModel('38', 'Badajoz'));
+    this.provinceArray.push(new ProvinceModel('39', 'Cáceres'));
+    this.provinceArray.push(new ProvinceModel('40', 'Coruña, A'));
+    this.provinceArray.push(new ProvinceModel('41', 'Lugo'));
+    this.provinceArray.push(new ProvinceModel('42', 'Ourense'));
+    this.provinceArray.push(new ProvinceModel('43', 'Pontevedra'));
+    this.provinceArray.push(new ProvinceModel('44', 'Madrid'));
+    this.provinceArray.push(new ProvinceModel('45', 'Murcia'));
+    this.provinceArray.push(new ProvinceModel('46', 'Navarra'));
+    this.provinceArray.push(new ProvinceModel('47', 'Araba/Álava'));
+    this.provinceArray.push(new ProvinceModel('48', 'Bizkaia'));
+    this.provinceArray.push(new ProvinceModel('49', 'Gipuzkoa'));
+    this.provinceArray.push(new ProvinceModel('50', 'Rioja, La'));
+    this.provinceArray.push(new ProvinceModel('51', 'Ceuta'));
+    this.provinceArray.push(new ProvinceModel('52', 'Melilla'));
+
+    this.productStatusArray.push(new ProductStatusModel('1', '1', 'Nuevo'));
+    this.productStatusArray.push(new ProductStatusModel('2', '1', 'Como nuevo'));
+    this.productStatusArray.push(new ProductStatusModel('3', '1', 'Bueno'));
+    this.productStatusArray.push(new ProductStatusModel('4', '1', 'Aceptable'));
+    this.productStatusArray.push(new ProductStatusModel('5', '1', 'Lo ha dado todo'));
+
   }
   ngOnInit(): void {}
 
   getCategories(): CategoryModel[] {
     return this.categoryArray;
+  }
+
+  getSubcategoriesByCategoryId(categoryId: string): SubcategoryModel[] {
+    console.log('categoryId:' + categoryId);
+    console.log('all subcategories:', this.subCategoryArray);
+    const subcategoriesFound = this.subCategoryArray.filter((value) => value.idCategory === categoryId);
+    console.log('subcategoriesFound:', subcategoriesFound);
+    return subcategoriesFound;
   }
 
   getTownsFooter(): string[] {
@@ -240,5 +321,18 @@ export class MijapopService implements OnInit {
 
     //Log object to console again.
     console.log('After update: ', this.userArray[objIndex]);
+  }
+
+  getProvincesOrderedByName(): ProvinceModel[] {
+    const provincesOrdered = this.provinceArray.sort((a: ProvinceModel, b: ProvinceModel) => (a.name > b.name) ? 1 : -1);
+    return provincesOrdered;
+  }
+
+  getAllProductStatus(): ProductStatusModel[]{
+    return this.productStatusArray;
+  }
+
+  addNewProduct(product: ProductModel){
+    this.productsArray.push(product);
   }
 }

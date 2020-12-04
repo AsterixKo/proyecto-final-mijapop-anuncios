@@ -1,1 +1,177 @@
-<p>upload-product works!</p>
+<form autocomplete="off" [formGroup]="forma" (ngSubmit)="saveForm()" *ngIf="!isCorrectUpload">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Sube tu producto</h1>
+        <hr>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputName">Nombre del producto</label>
+        <input type="text" class="form-control" id="inputName" formControlName="name"
+          [class.is-invalid]="isFieldInvalid('name')">
+        <small class="form-text text-danger" *ngIf="isFieldInvalid('name')">El nombre debe tener al menos 3
+          letras</small>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputPrice">Precio</label>
+        <input type="text" class="form-control" id="inputPrice" formControlName="price"
+          [class.is-invalid]="isFieldInvalid('price')">
+        <small class="form-text text-danger" *ngIf="isFieldInvalid('price')">El precio debe ser un número y puede
+          contener hasta 2 decimales separados por .</small>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputDescription">Description</label>
+        <input type="text" class="form-control" id="inputDescription" formControlName="description">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputCategoria">Categoria</label>
+        <select id="inputCategoria" formControlName="category"
+        class="form-control"
+        [class.is-invalid]="isFieldInvalid('category')"
+        #mySelect (change)="onCategorySelected(mySelect.value)">
+          <option [ngValue]="null" disabled>Selecciona una categoría</option>
+          <option *ngFor="let category of this.categories" [value]="category.id">
+            {{category.name}}
+          </option>
+        </select>
+        <small class="form-text text-danger" *ngIf="isFieldInvalid('category')">La categoria es requerida</small>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputSubcategoria">Subcategoria</label>
+        <select id="inputSubcategoria" formControlName="subcategory"
+        class="form-control"
+        [class.is-invalid]="isFieldInvalid('subcategory')">
+          <option [ngValue]="null" disabled>Selecciona una subcategoría</option>
+          <option *ngFor="let subcategory of this.subcategories" [value]="subcategory.id">
+            {{subcategory.name}}
+          </option>
+        </select>
+        <small class="form-text text-danger" *ngIf="isFieldInvalid('subcategory')">La subcategoria es requerida</small>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputProvince">Provincia</label>
+        <select id="inputProvince" formControlName="province"
+        class="form-control"
+        [class.is-invalid]="isFieldInvalid('province')">
+          <option [ngValue]="null" disabled>Selecciona una provincia</option>
+          <option *ngFor="let province of this.provinces" [value]="province.name">
+            {{province.name}}
+          </option>
+        </select>
+        <small class="form-text text-danger" *ngIf="isFieldInvalid('province')">La provincia es requerida</small>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputProductStatus">Estado del producto</label>
+        <select id="inputProductStatus" formControlName="productStatus"
+        class="form-control"
+        [class.is-invalid]="isFieldInvalid('productStatus')">
+          <option [ngValue]="null" disabled>Selecciona un estado</option>
+          <option *ngFor="let productStatus of this.productStatusArray" [value]="productStatus.name">
+            {{productStatus.name}}
+          </option>
+        </select>
+        <small class="form-text text-danger" *ngIf="isFieldInvalid('productStatus')">El estado del producto es requerido</small>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputTown">Municipio</label>
+        <input type="text" class="form-control" id="inputTown" formControlName="town"
+          [class.is-invalid]="isFieldInvalid('town')">
+        <small class="form-text text-danger" *ngIf="isFieldInvalid('town')">El municipio es requerido</small>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputPhoto1">Foto 1</label>
+        <input type="text" class="form-control" id="inputPhoto1" formControlName="photo1"
+          [class.is-invalid]="isFieldInvalid('photo1')">
+        <small class="form-text text-danger" *ngIf="isFieldInvalid('photo1')">La primera foto es requerida</small>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputPhoto2">Foto 2</label>
+        <input type="text" class="form-control" id="inputPhoto2" formControlName="photo2">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputPhoto3">Foto 3</label>
+        <input type="text" class="form-control" id="inputPhoto3" formControlName="photo3">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputPhoto4">Foto 4</label>
+        <input type="text" class="form-control" id="inputPhoto4" formControlName="photo4">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputPhoto5">Foto 5</label>
+        <input type="text" class="form-control" id="inputPhoto5" formControlName="photo5">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputPhoto6">Foto 6</label>
+        <input type="text" class="form-control" id="inputPhoto6" formControlName="photo6">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputPhoto7">Foto 7</label>
+        <input type="text" class="form-control" id="inputPhoto7" formControlName="photo7">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputPhoto8">Foto 8</label>
+        <input type="text" class="form-control" id="inputPhoto8" formControlName="photo8">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputPhoto9">Foto 9</label>
+        <input type="text" class="form-control" id="inputPhoto9" formControlName="photo9">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputPhoto9">Foto 10</label>
+        <input type="text" class="form-control" id="inputPhoto10" formControlName="photo10">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col form-group">
+        <button type="submit" class="btn btn-block btn-primary">Subir</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="container mb-3" *ngIf="isCorrectUpload">
+  <div class="row">
+    <div class="col">
+      <h1>Tu producto {{this.productName}} se ha subido correctamente. Gracias {{this.userName}}.</h1>
+      <hr>
+      <a routerLink="/upload-product" (click)="refreshIsCorrectUpload()" class="btn btn-block btn-primary">Subir nuevo producto</a>
+    </div>
+  </div>
+</div>
