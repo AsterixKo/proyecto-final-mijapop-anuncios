@@ -34,21 +34,21 @@ export class ProfileComponent implements OnInit {
     let userFound: UserModel;
     await this.mijapopService.findUserByEmail(email).toPromise().then((data)=>{
       console.log('data:', data);
-      console.log('data.password', data["_password"]);
       this.currentUser = new UserModel(
         data["_id"],
-        data["_email"],
-        data["_password"],
-        data["_name"],
-        data["_lastName"],
-        data["_location"],
-        data["_description"],
-        data["_callSchedule"],
-        data["_phone"],
-        data["_gender"],
-        data["_dateBirth"],
-        data["_srcImage"],
-        data["_containsImage"]);
+        data["email"],
+        data["password"],
+        data["name"],
+        data["lastName"],
+        data["location"],
+        data["description"],
+        data["callSchedule"],
+        data["phone"],
+        data["gender"],
+        data["dateBirth"],
+        data["srcImage"],
+        data["containsImage"]);
+        console.log('currentUser:', this.currentUser);
     }).catch((error)=>{
       console.log('error:', error);
       return false;
@@ -92,22 +92,11 @@ export class ProfileComponent implements OnInit {
       this.currentUser.srcImage = this.forma.get('image').value;
       this.currentUser.containsImage = containsImage;
 
-
-      // const userNew = new UserModel(
-      //   uuid.v4(),
-      //   this.forma.get('email').value,
-      //   this.forma.get('password').value,
-      //   this.forma.get('name').value,
-      //   this.forma.get('lastName').value,
-      //   this.forma.get('location').value,
-      //   this.forma.get('description').value,
-      //   this.forma.get('callSchedule').value,
-      //   this.forma.get('phone').value,
-      //   '',
-      //   this.forma.get('dateBirth').value,
-      //   this.forma.get('image').value,
-      //   containsImage);
-      this.mijapopService.changeUserProfile(this.currentUser);
+      this.mijapopService.changeUserProfile(this.currentUser).subscribe((data) => {
+        console.log('changeUserProfile.data:', data);
+      }, (error) => {
+        console.log('error:', error);
+      });
       this.name=this.forma.get('name').value;
 
       this.forma.reset();

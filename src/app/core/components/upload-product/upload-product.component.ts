@@ -96,9 +96,20 @@ export class UploadProductComponent implements OnInit {
       let currentUser: UserModel;
       this.mijapopService.findUserByEmail(email).subscribe((data:any)=>{
         console.log('data:', data);
-        // currentUser = new UserModel(
-
-        // );
+        currentUser = new UserModel(
+          data["_id"],
+          data["email"],
+          data["password"],
+          data["name"],
+          data["lastName"],
+          data["location"],
+          data["description"],
+          data["callSchedule"],
+          data["phone"],
+          data["gender"],
+          data["dateBirth"],
+          data["srcImage"],
+          data["containsImage"]);
       },
       (error)=>{
         console.log('Se ha producido un error:', error);

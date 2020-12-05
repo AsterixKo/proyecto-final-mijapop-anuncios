@@ -336,13 +336,15 @@ export class MijapopService implements OnInit {
     //   return null;
     // }
   }
-  changeUserProfile(userUpdated: UserModel) {
+  changeUserProfile(userUpdated: UserModel): Observable<UserModel> {
     console.log('changeUserProfile:', userUpdated);
-    this.http.put(this.urlBase + 'users/' + userUpdated.id, userUpdated).subscribe((data) => {
-      console.log('changeUserProfile.data:', data);
-    }, (error) => {
-      console.log('error:', error);
-    });
+    console.log('userUpdated.id:', userUpdated.id);
+    return this.http.put<UserModel>(this.urlBase + 'users/' + userUpdated.id, userUpdated);
+    // this.http.put(this.urlBase + 'users/' + userUpdated.id, userUpdated).subscribe((data) => {
+    //   console.log('changeUserProfile.data:', data);
+    // }, (error) => {
+    //   console.log('error:', error);
+    // });
     // //Find index of specific object using findIndex method.
     // let objIndex = this.userArray.findIndex((obj) => obj.email === userUpdated.email);
 
