@@ -93,35 +93,56 @@ export class UploadProductComponent implements OnInit {
       //   this.forma.get('image').value,
       //   containsImage);
       const email = localStorage.getItem('email');
-      const currentUser: UserModel = this.mijapopService.findUserByEmail(email);
+      let currentUser: UserModel;
+      this.mijapopService.findUserByEmail(email).subscribe((data:any)=>{
+        console.log('data:', data);
+        currentUser = new UserModel(
+          data["_id"],
+          data["email"],
+          data["password"],
+          data["name"],
+          data["lastName"],
+          data["location"],
+          data["description"],
+          data["callSchedule"],
+          data["phone"],
+          data["gender"],
+          data["dateBirth"],
+          data["srcImage"],
+          data["containsImage"]);
+      },
+      (error)=>{
+        console.log('Se ha producido un error:', error);
+      });
       this.userName = currentUser.name;
-      const productNew = new ProductModel(
-        uuid.v4(),
-        this.forma.get('category').value,
-        this.forma.get('subcategory').value,
-        currentUser.id,
-        currentUser.name,
-        this.forma.get('name').value,
-        this.forma.get('description').value,
-        this.forma.get('price').value,
-        'euro',
-        this.forma.get('productStatus').value,
-        this.forma.get('province').value,
-        this.forma.get('town').value,
-        false,
-        this.forma.get('photo1').value,
-        this.forma.get('photo2').value,
-        this.forma.get('photo3').value,
-        this.forma.get('photo4').value,
-        this.forma.get('photo5').value,
-        this.forma.get('photo6').value,
-        this.forma.get('photo7').value,
-        this.forma.get('photo8').value,
-        this.forma.get('photo9').value,
-        this.forma.get('photo10').value);
+      //Todo descomentar esto y hacerlo mejor
+      // const productNew = new ProductModel(
+      //   uuid.v4(),
+      //   this.forma.get('category').value,
+      //   this.forma.get('subcategory').value,
+      //   currentUser.id,
+      //   currentUser.name,
+      //   this.forma.get('name').value,
+      //   this.forma.get('description').value,
+      //   this.forma.get('price').value,
+      //   'euro',
+      //   this.forma.get('productStatus').value,
+      //   this.forma.get('province').value,
+      //   this.forma.get('town').value,
+      //   false,
+      //   this.forma.get('photo1').value,
+      //   this.forma.get('photo2').value,
+      //   this.forma.get('photo3').value,
+      //   this.forma.get('photo4').value,
+      //   this.forma.get('photo5').value,
+      //   this.forma.get('photo6').value,
+      //   this.forma.get('photo7').value,
+      //   this.forma.get('photo8').value,
+      //   this.forma.get('photo9').value,
+      //   this.forma.get('photo10').value);
 
-      console.log('Nuevo producto:', productNew);
-      this.mijapopService.addNewProduct(productNew);
+      // console.log('Nuevo producto:', productNew);
+      // this.mijapopService.addNewProduct(productNew);
 
       this.forma.reset();
 

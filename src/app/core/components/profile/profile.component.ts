@@ -15,21 +15,45 @@ export class ProfileComponent implements OnInit {
   isCorrectRegistration: boolean = false;
   name: string = '';
   private formSubmitAttempt: boolean = false;
-  private currentUser: UserModel;
+  currentUser: UserModel;
 
   constructor(private fb: FormBuilder, private mijapopService: MijapopService) {
 
   }
     
 
-  ngOnInit(): void {
-    const email = localStorage.getItem('email');
-    this.currentUser = this.mijapopService.findUserByEmail(email);
-
+ ngOnInit(): void {
+    // const email = localStorage.getItem('email');
+    // this.currentUser = this.mijapopService.findUserByEmail(email);
+    
     this.createForm(); 
   }
 
-  createForm() {
+  async createForm() {
+    const email = localStorage.getItem('email');
+    let userFound: UserModel;
+    await this.mijapopService.findUserByEmail(email).toPromise().then((data)=>{
+      console.log('data:', data);
+      this.currentUser = new UserModel(
+        data["_id"],
+        data["email"],
+        data["password"],
+        data["name"],
+        data["lastName"],
+        data["location"],
+        data["description"],
+        data["callSchedule"],
+        data["phone"],
+        data["gender"],
+        data["dateBirth"],
+        data["srcImage"],
+        data["containsImage"]);
+        console.log('currentUser:', this.currentUser);
+    }).catch((error)=>{
+      console.log('error:', error);
+      return false;
+    });
+
     this.forma = this.fb.group({
       name: [this.currentUser.name, [Validators.required, Validators.minLength(3)]],
       lastName: [this.currentUser.lastName],
@@ -68,22 +92,11 @@ export class ProfileComponent implements OnInit {
       this.currentUser.srcImage = this.forma.get('image').value;
       this.currentUser.containsImage = containsImage;
 
-
-      // const userNew = new UserModel(
-      //   uuid.v4(),
-      //   this.forma.get('email').value,
-      //   this.forma.get('password').value,
-      //   this.forma.get('name').value,
-      //   this.forma.get('lastName').value,
-      //   this.forma.get('location').value,
-      //   this.forma.get('description').value,
-      //   this.forma.get('callSchedule').value,
-      //   this.forma.get('phone').value,
-      //   '',
-      //   this.forma.get('dateBirth').value,
-      //   this.forma.get('image').value,
-      //   containsImage);
-      this.mijapopService.changeUserProfile(this.currentUser);
+      this.mijapopService.changeUserProfile(this.currentUser).subscribe((data) => {
+        console.log('changeUserProfile.data:', data);
+      }, (error) => {
+        console.log('error:', error);
+      });
       this.name=this.forma.get('name').value;
 
       this.forma.reset();

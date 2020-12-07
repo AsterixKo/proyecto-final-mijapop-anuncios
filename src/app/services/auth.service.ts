@@ -11,16 +11,43 @@ export class AuthService {
 
   }
 
-  login(user: UserModel) {
+  async login(user: UserModel) {
     console.log('Datos en el service', user);
-    const userFound = this.mijapopService.findUserByEmail(user.email);
+    let userFound: UserModel;
+    await this.mijapopService.findUserByEmail(user.email).toPromise().then((data)=>{
+      console.log('data:', data);
+      console.log('data.password', data["password"]);
+      userFound = new UserModel(
+        data["_id"],
+        data["email"],
+        data["password"],
+        data["name"],
+        data["lastName"],
+        data["location"],
+        data["description"],
+        data["callSchedule"],
+        data["phone"],
+        data["gender"],
+        data["dateBirth"],
+        data["srcImage"],
+        data["containsImage"]);
+    }).catch((error)=>{
+      console.log('error:', error);
+      return false;
+    });
+    
     if (userFound) {
+      console.log('UserFound:', userFound);
+      console.log('user.password', user.password);
+      console.log('userFound.password', userFound.password);
       if (user.password == userFound.password) {
+        console.log('Autenticado');
         localStorage.setItem('auth', 'true');
         //en el futuro hay que identificar al usuario de alguna forma
         localStorage.setItem('email', user.email);
         return true;
       }
+      console.log('no hace el if bien');
     } else {
       console.log('AuthService:login: usuario no encontrado');
       return false;

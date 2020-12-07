@@ -1,17 +1,16 @@
-import { CategoryModel } from './category.model';
+import { UserModel } from './user.model';
 
-export class ProductStatusModel {
+export class RoleModel {
     private _id: string;
-    private _category: CategoryModel;
+    private _user: UserModel;
     private _name: string;
 
 
-	constructor(id: string, category: CategoryModel, name: string) {
+	constructor(id: string, user: UserModel, name: string) {
 		this._id = id;
-		this._category = category;
+		this._user = user;
 		this._name = name;
 	}
-
 
     /**
      * Getter id
@@ -22,11 +21,11 @@ export class ProductStatusModel {
 	}
 
     /**
-     * Getter category
-     * @return {CategoryModel}
+     * Getter user
+     * @return {UserModel}
      */
-	public get category(): CategoryModel {
-		return this._category;
+	public get user(): UserModel {
+		return this._user;
 	}
 
     /**
@@ -46,11 +45,11 @@ export class ProductStatusModel {
 	}
 
     /**
-     * Setter category
-     * @param {CategoryModel} value
+     * Setter user
+     * @param {UserModel} value
      */
-	public set category(value: CategoryModel) {
-		this._category = value;
+	public set user(value: UserModel) {
+		this._user = value;
 	}
 
     /**
@@ -60,5 +59,6 @@ export class ProductStatusModel {
 	public set name(value: string) {
 		this._name = value;
 	}
+
 
 }

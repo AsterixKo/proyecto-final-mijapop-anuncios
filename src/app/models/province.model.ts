@@ -8,6 +8,7 @@ export class ProvinceModel {
         this._name = name;
     }
 
+
     /**
      * Getter id
      * @return {string}
@@ -39,6 +40,5 @@ export class ProvinceModel {
     public set name(value: string) {
         this._name = value;
     }
-
 
 }

@@ -1,81 +1,138 @@
+import { ProductModel } from './product.model';
+import { UserModel } from './user.model';
+
 export class ConversationModel {
     private _id: string;
-    private _idUserOwner: string;
-    private _idUserBuyer: string;
-    private _idProduct: string;
+    private _userOwner: UserModel;
+    private _userBuyer: UserModel;
+    private _product: ProductModel;
     private _srcPhoto: string;
     private _productName: string;
     private _nameUserBuyer: string;
 
-    constructor(id: string,
-        idUserOwner: string,
-        idUserBuyer: string,
-        idProduct: string,
-        srcPhoto: string,
-        productName: string,
-        nameUserBuyer: string) {
+
+    constructor(id: string, userOwner: UserModel, userBuyer: UserModel, product: ProductModel, srcPhoto: string, productName: string, nameUserBuyer: string) {
         this._id = id;
-        this._idUserOwner = idUserOwner;
-        this._idUserBuyer = idUserBuyer;
-        this._idProduct = idProduct;
+        this._userOwner = userOwner;
+        this._userBuyer = userBuyer;
+        this._product = product;
         this._srcPhoto = srcPhoto;
         this._productName = productName;
-        this._nameUserBuyer = nameUserBuyer
+        this._nameUserBuyer = nameUserBuyer;
     }
 
-    get id(): string {
+
+    /**
+     * Getter id
+     * @return {string}
+     */
+    public get id(): string {
         return this._id;
     }
 
-    set id(id: string) {
-        this._id = id;
+    /**
+     * Getter userOwner
+     * @return {UserModel}
+     */
+    public get userOwner(): UserModel {
+        return this._userOwner;
     }
 
-    get idUserOwner(): string {
-        return this._idUserOwner;
+    /**
+     * Getter userBuyer
+     * @return {UserModel}
+     */
+    public get userBuyer(): UserModel {
+        return this._userBuyer;
     }
 
-    set idUserOwner(idUserOwner: string) {
-        this._idUserOwner = idUserOwner;
+    /**
+     * Getter product
+     * @return {ProductModel}
+     */
+    public get product(): ProductModel {
+        return this._product;
     }
 
-    get idUserBuyer(): string {
-        return this._idUserBuyer;
-    }
-
-    set idUserBuyer(idUserBuyer: string) {
-        this._idUserBuyer = idUserBuyer;
-    }
-
-    get idProduct(): string {
-        return this._idProduct;
-    }
-
-    set idProduct(idProduct: string) {
-        this._idProduct = idProduct;
-    }
-
-    get srcPhoto(): string {
+    /**
+     * Getter srcPhoto
+     * @return {string}
+     */
+    public get srcPhoto(): string {
         return this._srcPhoto;
     }
 
-    set srcPhoto(srcPhoto: string) {
-        this._srcPhoto = srcPhoto;
-    }
-
-    get productName(): string {
+    /**
+     * Getter productName
+     * @return {string}
+     */
+    public get productName(): string {
         return this._productName;
     }
 
-    set productName(productName: string) {
-        this._productName = productName;
-    }
-
-    get nameUserBuyer(): string {
+    /**
+     * Getter nameUserBuyer
+     * @return {string}
+     */
+    public get nameUserBuyer(): string {
         return this._nameUserBuyer;
     }
 
-    set nameUserBuyer(nameUserBuyer: string) {
-        this._nameUserBuyer = nameUserBuyer;
+    /**
+     * Setter id
+     * @param {string} value
+     */
+    public set id(value: string) {
+        this._id = value;
     }
+
+    /**
+     * Setter userOwner
+     * @param {UserModel} value
+     */
+    public set userOwner(value: UserModel) {
+        this._userOwner = value;
+    }
+
+    /**
+     * Setter userBuyer
+     * @param {UserModel} value
+     */
+    public set userBuyer(value: UserModel) {
+        this._userBuyer = value;
+    }
+
+    /**
+     * Setter product
+     * @param {ProductModel} value
+     */
+    public set product(value: ProductModel) {
+        this._product = value;
+    }
+
+    /**
+     * Setter srcPhoto
+     * @param {string} value
+     */
+    public set srcPhoto(value: string) {
+        this._srcPhoto = value;
+    }
+
+    /**
+     * Setter productName
+     * @param {string} value
+     */
+    public set productName(value: string) {
+        this._productName = value;
+    }
+
+    /**
+     * Setter nameUserBuyer
+     * @param {string} value
+     */
+    public set nameUserBuyer(value: string) {
+        this._nameUserBuyer = value;
+    }
+
+
 }
