@@ -30,8 +30,23 @@ export class UploadProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
+    this.loadNecessaryData();
+  }
+
+  loadNecessaryData() {
+
+    this.mijapopService.getProvincesOrderedByName().subscribe((data) => {
+      // console.log('provinces:',data);
+      for (const province of data) {
+        const provinceToAdd = new ProvinceModel(province["_id"], province["name"]);
+        // console.log('provinceToAdd:', provinceToAdd);
+        this.provinces.push(provinceToAdd);
+      }
+    }, (error) => {
+      console.log(error);
+    });
+
     this.categories = this.mijapopService.getCategories();
-    this.provinces = this.mijapopService.getProvincesOrderedByName();
     this.productStatusArray = this.mijapopService.getAllProductStatus();
   }
 
@@ -94,7 +109,7 @@ export class UploadProductComponent implements OnInit {
       //   containsImage);
       const email = localStorage.getItem('email');
       let currentUser: UserModel;
-      this.mijapopService.findUserByEmail(email).subscribe((data:any)=>{
+      this.mijapopService.findUserByEmail(email).subscribe((data: any) => {
         console.log('data:', data);
         currentUser = new UserModel(
           data["_id"],
@@ -111,9 +126,9 @@ export class UploadProductComponent implements OnInit {
           data["srcImage"],
           data["containsImage"]);
       },
-      (error)=>{
-        console.log('Se ha producido un error:', error);
-      });
+        (error) => {
+          console.log('Se ha producido un error:', error);
+        });
       this.userName = currentUser.name;
       //Todo descomentar esto y hacerlo mejor
       // const productNew = new ProductModel(

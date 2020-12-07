@@ -358,9 +358,10 @@ export class MijapopService implements OnInit {
     // console.log('After update: ', this.userArray[objIndex]);
   }
 
-  getProvincesOrderedByName(): ProvinceModel[] {
-    const provincesOrdered = this.provinceArray.sort((a: ProvinceModel, b: ProvinceModel) => (a.name > b.name) ? 1 : -1);
-    return provincesOrdered;
+  getProvincesOrderedByName(): Observable<ProvinceModel[]> {
+    return this.http.get<ProvinceModel[]>(this.urlBase + 'provinces/');
+    // const provincesOrdered = this.provinceArray.sort((a: ProvinceModel, b: ProvinceModel) => (a.name > b.name) ? 1 : -1);
+    // return provincesOrdered;
   }
 
   getAllProductStatus(): ProductStatusModel[] {
@@ -369,5 +370,9 @@ export class MijapopService implements OnInit {
 
   addNewProduct(product: ProductModel) {
     this.productsArray.push(product);
+  }
+
+  addNewProvince(province: ProvinceModel): Observable<ProvinceModel>{
+    return this.http.post<ProvinceModel>(this.urlBase + 'provinces/', province);
   }
 }
