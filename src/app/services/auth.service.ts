@@ -16,21 +16,7 @@ export class AuthService {
     let userFound: UserModel;
     await this.mijapopService.findUserByEmail(user.email).toPromise().then((data)=>{
       console.log('data:', data);
-      console.log('data.password', data["password"]);
-      userFound = new UserModel(
-        data["_id"],
-        data["email"],
-        data["password"],
-        data["name"],
-        data["lastName"],
-        data["location"],
-        data["description"],
-        data["callSchedule"],
-        data["phone"],
-        data["gender"],
-        data["dateBirth"],
-        data["srcImage"],
-        data["containsImage"]);
+      userFound = data;
     }).catch((error)=>{
       console.log('error:', error);
       return false;
