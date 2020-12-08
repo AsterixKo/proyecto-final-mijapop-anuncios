@@ -27,6 +27,16 @@ import { ProductsTownComponent } from './core/components/products-town/products-
 import { HttpClientModule } from '@angular/common/http';
 import { AddProvinceComponent } from './core/components/add-province/add-province.component';
 import { AddCategoryComponent } from './core/components/add-category/add-category.component';
+import { FooterWhoComponent } from './shared/components/footer-who/footer-who.component';
+import { FooterPressComponent } from './shared/components/footer-press/footer-press.component';
+import { FooterJobsComponent } from './shared/components/footer-jobs/footer-jobs.component';
+import { FooterTeamComponent } from './shared/components/footer-team/footer-team.component';
+import { FooterFrequentQuestionsComponent } from './shared/components/footer-frequent-questions/footer-frequent-questions.component';
+import { FooterRulesComponent } from './shared/components/footer-rules/footer-rules.component';
+import { FooterSecurityComponent } from './shared/components/footer-security/footer-security.component';
+import { FooterConditionsComponent } from './shared/components/footer-conditions/footer-conditions.component';
+import { FooterPrivacyComponent } from './shared/components/footer-privacy/footer-privacy.component';
+import { FooterCookiesComponent } from './shared/components/footer-cookies/footer-cookies.component';
 
 
 @NgModule({
@@ -52,7 +62,17 @@ import { AddCategoryComponent } from './core/components/add-category/add-categor
     ProductsProvinceComponent,
     ProductsTownComponent,
     AddProvinceComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    FooterWhoComponent,
+    FooterPressComponent,
+    FooterJobsComponent,
+    FooterTeamComponent,
+    FooterFrequentQuestionsComponent,
+    FooterRulesComponent,
+    FooterSecurityComponent,
+    FooterConditionsComponent,
+    FooterPrivacyComponent,
+    FooterCookiesComponent
   ],
   imports: [
     BrowserModule,

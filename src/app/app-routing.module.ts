@@ -15,6 +15,16 @@ import { RegisterComponent } from './core/components/register/register.component
 import { SearchComponent } from './core/components/search/search.component';
 import { UploadProductComponent } from './core/components/upload-product/upload-product.component';
 import { AuthGuard } from './guards/auth.guard';
+import { FooterConditionsComponent } from './shared/components/footer-conditions/footer-conditions.component';
+import { FooterCookiesComponent } from './shared/components/footer-cookies/footer-cookies.component';
+import { FooterFrequentQuestionsComponent } from './shared/components/footer-frequent-questions/footer-frequent-questions.component';
+import { FooterJobsComponent } from './shared/components/footer-jobs/footer-jobs.component';
+import { FooterPressComponent } from './shared/components/footer-press/footer-press.component';
+import { FooterPrivacyComponent } from './shared/components/footer-privacy/footer-privacy.component';
+import { FooterRulesComponent } from './shared/components/footer-rules/footer-rules.component';
+import { FooterSecurityComponent } from './shared/components/footer-security/footer-security.component';
+import { FooterTeamComponent } from './shared/components/footer-team/footer-team.component';
+import { FooterWhoComponent } from './shared/components/footer-who/footer-who.component';
 import { HomeComponent } from './shared/components/home/home.component';
 import { LoginComponent } from './shared/components/login/login.component';
 import { LogoutComponent } from './shared/components/logout/logout.component';
@@ -35,6 +45,16 @@ const routes: Routes = [
   { path: 'upload-product', component: UploadProductComponent, canActivate: [AuthGuard] },
   { path: 'add-province', component: AddProvinceComponent, canActivate: [AuthGuard] },
   { path: 'add-category', component: AddCategoryComponent, canActivate: [AuthGuard] },
+  { path: 'footer-who', component: FooterWhoComponent },
+  { path: 'footer-press', component: FooterPressComponent },
+  { path: 'footer-jobs', component: FooterJobsComponent },
+  { path: 'footer-team', component: FooterTeamComponent },
+  { path: 'footer-frequent-questions', component: FooterFrequentQuestionsComponent },
+  { path: 'footer-rules', component: FooterRulesComponent },
+  { path: 'footer-security', component: FooterSecurityComponent },
+  { path: 'footer-conditions', component: FooterConditionsComponent },
+  { path: 'footer-privacy', component: FooterPrivacyComponent },
+  { path: 'footer-cookies', component: FooterCookiesComponent },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
   { path: '**', redirectTo: 'home' }
