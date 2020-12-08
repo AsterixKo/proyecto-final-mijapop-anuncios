@@ -26,6 +26,7 @@ import { ProductsProvinceComponent } from './core/components/products-province/p
 import { ProductsTownComponent } from './core/components/products-town/products-town.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddProvinceComponent } from './core/components/add-province/add-province.component';
+import { AddCategoryComponent } from './core/components/add-category/add-category.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { AddProvinceComponent } from './core/components/add-province/add-provinc
     ProductsSubcategoryComponent,
     ProductsProvinceComponent,
     ProductsTownComponent,
-    AddProvinceComponent
+    AddProvinceComponent,
+    AddCategoryComponent
   ],
   imports: [
     BrowserModule,
