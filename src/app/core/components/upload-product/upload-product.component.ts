@@ -38,7 +38,9 @@ export class UploadProductComponent implements OnInit {
     this.mijapopService.getProvincesOrderedByName().subscribe((data) => {
       // console.log('provinces:',data);
       for (const province of data) {
-        const provinceToAdd = new ProvinceModel(province["_id"], province["name"]);
+        const provinceToAdd = new ProvinceModel();
+        provinceToAdd._id =province["_id"];
+        provinceToAdd.name = province["name"];
         // console.log('provinceToAdd:', provinceToAdd);
         this.provinces.push(provinceToAdd);
       }
@@ -74,7 +76,7 @@ export class UploadProductComponent implements OnInit {
   }
 
 
-  saveForm() {
+  async saveForm() {
     console.log('saveForm de nuevo producto...');
     this.formSubmitAttempt = true;
     console.log(this.forma);
@@ -109,26 +111,12 @@ export class UploadProductComponent implements OnInit {
       //   containsImage);
       const email = localStorage.getItem('email');
       let currentUser: UserModel;
-      this.mijapopService.findUserByEmail(email).subscribe((data: any) => {
+      await this.mijapopService.findUserByEmail(email).toPromise().then((data: any) => {
         console.log('data:', data);
-        currentUser = new UserModel(
-          data["_id"],
-          data["email"],
-          data["password"],
-          data["name"],
-          data["lastName"],
-          data["location"],
-          data["description"],
-          data["callSchedule"],
-          data["phone"],
-          data["gender"],
-          data["dateBirth"],
-          data["srcImage"],
-          data["containsImage"]);
-      },
-        (error) => {
-          console.log('Se ha producido un error:', error);
-        });
+        currentUser = data;
+      }).catch((error) => {
+        console.log('Se ha producido un error:', error);
+      });
       this.userName = currentUser.name;
       //Todo descomentar esto y hacerlo mejor
       // const productNew = new ProductModel(

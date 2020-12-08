@@ -20,36 +20,23 @@ export class ProfileComponent implements OnInit {
   constructor(private fb: FormBuilder, private mijapopService: MijapopService) {
 
   }
-    
 
- ngOnInit(): void {
+
+  ngOnInit(): void {
     // const email = localStorage.getItem('email');
     // this.currentUser = this.mijapopService.findUserByEmail(email);
-    
-    this.createForm(); 
+
+    this.createForm();
   }
 
   async createForm() {
     const email = localStorage.getItem('email');
     let userFound: UserModel;
-    await this.mijapopService.findUserByEmail(email).toPromise().then((data)=>{
+    await this.mijapopService.findUserByEmail(email).toPromise().then((data) => {
       console.log('data:', data);
-      this.currentUser = new UserModel(
-        data["_id"],
-        data["email"],
-        data["password"],
-        data["name"],
-        data["lastName"],
-        data["location"],
-        data["description"],
-        data["callSchedule"],
-        data["phone"],
-        data["gender"],
-        data["dateBirth"],
-        data["srcImage"],
-        data["containsImage"]);
-        console.log('currentUser:', this.currentUser);
-    }).catch((error)=>{
+      this.currentUser = data;
+      console.log('currentUser:', this.currentUser);
+    }).catch((error) => {
       console.log('error:', error);
       return false;
     });
@@ -97,12 +84,12 @@ export class ProfileComponent implements OnInit {
       }, (error) => {
         console.log('error:', error);
       });
-      this.name=this.forma.get('name').value;
+      this.name = this.forma.get('name').value;
 
       this.forma.reset();
 
       this.isCorrectRegistration = true;
-      
+
     } else {
       if (this.forma.status === 'INVALID') {
         console.log('Formulario INVALID');

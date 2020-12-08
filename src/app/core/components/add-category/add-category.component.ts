@@ -36,7 +36,9 @@ export class AddCategoryComponent implements OnInit {
 
     if (this.forma.status === 'VALID') {
 
-      const categoryNew = new CategoryModel('', this.forma.get('name').value, this.forma.get('description').value, []);
+      const categoryNew = new CategoryModel();
+      categoryNew.name = this.forma.get('name').value;
+      categoryNew.description =this.forma.get('description').value;
 
       this.mijapopService.addNewCategory(categoryNew).subscribe((data) => {
         console.log('categoria creada correctamente');

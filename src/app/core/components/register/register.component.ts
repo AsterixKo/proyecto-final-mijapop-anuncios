@@ -63,27 +63,27 @@ export class RegisterComponent implements OnInit {
         containsImage = false;
       }
 
-      const userNew = new UserModel(
-        uuid.v4(),
-        this.forma.get('email').value,
-        this.forma.get('password').value,
-        this.forma.get('name').value,
-        this.forma.get('lastName').value,
-        this.forma.get('location').value,
-        this.forma.get('description').value,
-        this.forma.get('callSchedule').value,
-        this.forma.get('phone').value,
-        '',
-        this.forma.get('dateBirth').value,
-        this.forma.get('image').value,
-        containsImage);
+      const userNew = new UserModel();
+      userNew.email = this.forma.get('email').value;
+      userNew.password =this.forma.get('password').value;
+      userNew.name =this.forma.get('name').value;
+      userNew.lastName =this.forma.get('lastName').value;
+      userNew.location =this.forma.get('location').value;
+      userNew.description =this.forma.get('description').value;
+      userNew.callSchedule =this.forma.get('callSchedule').value;
+      userNew.phone =this.forma.get('phone').value;
+      userNew.gender = '';
+      userNew.dateBirth =this.forma.get('dateBirth').value;
+      userNew.srcImage =this.forma.get('image').value;
+      userNew.containsImage =containsImage;
+
       this.mijapopService.registerNewUser(userNew);
-      this.name=this.forma.get('name').value;
+      this.name = this.forma.get('name').value;
 
       this.forma.reset();
 
       this.isCorrectRegistration = true;
-      
+
     } else {
       if (this.forma.status === 'INVALID') {
         console.log('Formulario INVALID');

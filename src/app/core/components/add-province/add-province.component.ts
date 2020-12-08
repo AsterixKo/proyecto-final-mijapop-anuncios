@@ -35,8 +35,8 @@ export class AddProvinceComponent implements OnInit {
 
     if (this.forma.status === 'VALID') {
 
-      const provinceNew = new ProvinceModel('', this.forma.get('name').value);
-
+      const provinceNew = new ProvinceModel();
+      provinceNew.name=this.forma.get('name').value;
       await this.mijapopService.addNewProvince(provinceNew).subscribe((data) => {
         console.log('provincia creada correctamente');
         this.isCorrectCreation = true;
