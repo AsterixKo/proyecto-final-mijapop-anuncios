@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddCategoryComponent } from './core/components/add-category/add-category.component';
 import { AddProvinceComponent } from './core/components/add-province/add-province.component';
 import { FavoritesComponent } from './core/components/favorites/favorites.component';
 import { MessagesComponent } from './core/components/messages/messages.component';
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'search/:q', component: SearchComponent },
   { path: 'upload-product', component: UploadProductComponent, canActivate: [AuthGuard] },
   { path: 'add-province', component: AddProvinceComponent, canActivate: [AuthGuard] },
+  { path: 'add-category', component: AddCategoryComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
   { path: '**', redirectTo: 'home' }

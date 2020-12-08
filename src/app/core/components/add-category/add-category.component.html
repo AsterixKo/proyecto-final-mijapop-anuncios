@@ -1,0 +1,41 @@
+<form autocomplete="off" [formGroup]="forma" (ngSubmit)="saveForm()" *ngIf="!isCorrectCreation">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Nueva categoria</h1>
+        <hr>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputName">Nombre</label>
+        <input type="text" class="form-control" id="inputName" formControlName="name"
+          [class.is-invalid]="isFieldInvalid('name')">
+        <small class="form-text text-danger" *ngIf="isFieldInvalid('name')">El nombre debe tener al menos 3
+          letras</small>
+      </div>
+    </div>
+    <div class="form-row">
+        <div class="col form-group">
+          <label for="inputDescription">Description</label>
+          <input type="text" class="form-control" id="inputDescription" formControlName="description"
+            [class.is-invalid]="isFieldInvalid('description')">
+        </div>
+      </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <button type="submit" class="btn btn-block btn-primary">Enviar</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="container mb-3" *ngIf="isCorrectCreation">
+  <div class="row">
+    <div class="col">
+      <h1>Gracias por crear la categoría {{this.name}}, crea otra nueva</h1>
+      <hr>
+      <a routerLink="/add-category" (click)="refreshFormValues()" class="btn btn-block btn-primary">Nueva categoría</a>
+    </div>
+  </div>
+</div>
