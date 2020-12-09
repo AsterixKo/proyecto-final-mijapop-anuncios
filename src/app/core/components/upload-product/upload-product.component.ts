@@ -24,6 +24,7 @@ export class UploadProductComponent implements OnInit {
   subcategories: SubcategoryModel[] = [];
   provinces: ProvinceModel[] = [];
   productStatusArray: ProductStatusModel[] = [];
+  errorInApi: boolean = false;
   private formSubmitAttempt: boolean = false;
 
   constructor(private fb: FormBuilder, private mijapopService: MijapopService) { }
@@ -86,32 +87,7 @@ export class UploadProductComponent implements OnInit {
 
     if (this.forma.status === 'VALID') {
       console.log('Formulario valido');
-      // const productNew = new ProductModel(uuid.v4(),);
 
-      // console.log('image:', this.forma.get('image').value);
-      // let containsImage = false;
-      // if (this.forma.get('image').value) {
-      //   console.log('contiene imagen');
-      //   containsImage = true;
-      // } else {
-      //   console.log('No contiene imagen');
-      //   containsImage = false;
-      // }
-
-      // const userNew = new UserModel(
-      //   uuid.v4(),
-      //   this.forma.get('email').value,
-      //   this.forma.get('password').value,
-      //   this.forma.get('name').value,
-      //   this.forma.get('lastName').value,
-      //   this.forma.get('location').value,
-      //   this.forma.get('description').value,
-      //   this.forma.get('callSchedule').value,
-      //   this.forma.get('phone').value,
-      //   '',
-      //   this.forma.get('dateBirth').value,
-      //   this.forma.get('image').value,
-      //   containsImage);
       const email = localStorage.getItem('email');
       let currentUser: UserModel;
       await this.mijapopService.findUserByEmail(email).toPromise().then((data: any) => {
@@ -121,39 +97,53 @@ export class UploadProductComponent implements OnInit {
         console.log('Se ha producido un error:', error);
       });
       this.userName = currentUser.name;
-      //Todo descomentar esto y hacerlo mejor
-      // const productNew = new ProductModel(
-      //   uuid.v4(),
-      //   this.forma.get('category').value,
-      //   this.forma.get('subcategory').value,
-      //   currentUser.id,
-      //   currentUser.name,
-      //   this.forma.get('name').value,
-      //   this.forma.get('description').value,
-      //   this.forma.get('price').value,
-      //   'euro',
-      //   this.forma.get('productStatus').value,
-      //   this.forma.get('province').value,
-      //   this.forma.get('town').value,
-      //   false,
-      //   this.forma.get('photo1').value,
-      //   this.forma.get('photo2').value,
-      //   this.forma.get('photo3').value,
-      //   this.forma.get('photo4').value,
-      //   this.forma.get('photo5').value,
-      //   this.forma.get('photo6').value,
-      //   this.forma.get('photo7').value,
-      //   this.forma.get('photo8').value,
-      //   this.forma.get('photo9').value,
-      //   this.forma.get('photo10').value);
 
-      // console.log('Nuevo producto:', productNew);
-      // this.mijapopService.addNewProduct(productNew);
+      //creamos el producto
+      const category = new CategoryModel();
+      category._id = this.forma.get('category').value;
+      const subcategory = new SubcategoryModel();
+      subcategory._id = this.forma.get('subcategory').value;
+      const productStatus = new ProductStatusModel();
+      productStatus._id = this.forma.get('productStatus').value;
+      const province = new ProvinceModel();
+      province._id = this.forma.get('province').value;
 
-      this.forma.reset();
+      const productNew = new ProductModel();
+      productNew.category = category;
+      productNew.subcategory = subcategory;
+      productNew.userOwner = currentUser;
+      productNew.userNameOwner = currentUser.name;
+      productNew.name = this.forma.get('name').value;
+      productNew.description = this.forma.get('description').value;
+      productNew.price = this.forma.get('price').value;
+      productNew.currency = 'euro';
+      productNew.productStatus = productStatus;
+      productNew.province = province;
+      productNew.town = this.forma.get('town').value;
+      productNew.isSold = false;
+      productNew.photo1 = this.forma.get('photo1').value;
+      productNew.photo2 = this.forma.get('photo2').value;
+      productNew.photo3 = this.forma.get('photo3').value;
+      productNew.photo4 = this.forma.get('photo4').value;
+      productNew.photo5 = this.forma.get('photo5').value;
+      productNew.photo6 = this.forma.get('photo6').value;
+      productNew.photo7 = this.forma.get('photo7').value;
+      productNew.photo8 = this.forma.get('photo8').value;
+      productNew.photo9 = this.forma.get('photo9').value;
+      productNew.photo10 = this.forma.get('photo10').value;
 
-      this.isCorrectUpload = true;
-      this.formSubmitAttempt = false;
+      console.log('Nuevo producto:', productNew);
+      await this.mijapopService.addNewProduct(productNew).toPromise().then((data) => {
+        console.log('producto subido correctamente');
+        this.forma.reset();
+        this.isCorrectUpload = true;
+        this.formSubmitAttempt = false;
+        this.errorInApi = false;
+      }).catch((error) => {
+        console.log(error);
+        this.errorInApi = true;
+      });
+
     } else {
       if (this.forma.status === 'INVALID') {
         console.log('Formulario INVALID');
@@ -177,5 +167,12 @@ export class UploadProductComponent implements OnInit {
 
   refreshIsCorrectUpload() {
     this.isCorrectUpload = false;
+  }
+
+  refreshWithErrorInApi() {
+    this.forma.reset();
+    this.isCorrectUpload = false;
+    this.formSubmitAttempt = false;
+    this.errorInApi = false;
   }
 }

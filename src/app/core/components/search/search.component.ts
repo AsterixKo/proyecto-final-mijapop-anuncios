@@ -24,7 +24,7 @@ export class SearchComponent implements OnInit {
     });
 
     if (this.q != null && this.q != '') {
-      console.log('Iniciando búsqueda...');
+      console.log('Iniciando búsqueda...:', this.q);
       // this.products = this.mijapop.findProductsByQuery(this.q);
     }
   }
