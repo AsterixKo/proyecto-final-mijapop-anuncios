@@ -37,6 +37,7 @@ import { FooterSecurityComponent } from './shared/components/footer-security/foo
 import { FooterConditionsComponent } from './shared/components/footer-conditions/footer-conditions.component';
 import { FooterPrivacyComponent } from './shared/components/footer-privacy/footer-privacy.component';
 import { FooterCookiesComponent } from './shared/components/footer-cookies/footer-cookies.component';
+import { AddSubcategoryComponent } from './core/components/add-subcategory/add-subcategory.component';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { FooterCookiesComponent } from './shared/components/footer-cookies/foote
     FooterSecurityComponent,
     FooterConditionsComponent,
     FooterPrivacyComponent,
-    FooterCookiesComponent
+    FooterCookiesComponent,
+    AddSubcategoryComponent
   ],
   imports: [
     BrowserModule,

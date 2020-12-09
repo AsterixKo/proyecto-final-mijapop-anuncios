@@ -148,16 +148,12 @@ export class MijapopService implements OnInit {
   }
   ngOnInit(): void { }
 
-  getCategories(): CategoryModel[] {
-    return this.categoryArray;
+  getCategories(): Observable<CategoryModel[]> {
+    return this.http.get<CategoryModel[]>(this.urlBase + 'categories/');
   }
 
-  getSubcategoriesByCategoryId(categoryId: string): SubcategoryModel[] {
-    console.log('categoryId:' + categoryId);
-    console.log('all subcategories:', this.subCategoryArray);
-    const subcategoriesFound = this.subCategoryArray.filter((value) => value.category._id === categoryId);
-    console.log('subcategoriesFound:', subcategoriesFound);
-    return subcategoriesFound;
+  getSubcategoriesByCategoryId(categoryId: string): Observable<SubcategoryModel[]> {
+    return this.http.get<SubcategoryModel[]>(this.urlBase + `subcategories/category/${categoryId}`);
   }
 
   getTownsFooter(): string[] {
@@ -325,5 +321,9 @@ export class MijapopService implements OnInit {
 
   addNewCategory(category: CategoryModel): Observable<CategoryModel> {
     return this.http.post<CategoryModel>(this.urlBase + 'categories/', category);
+  }
+
+  addNewSubategory(subcategory: SubcategoryModel): Observable<SubcategoryModel> {
+    return this.http.post<SubcategoryModel>(this.urlBase + 'subcategories/', subcategory);
   }
 }

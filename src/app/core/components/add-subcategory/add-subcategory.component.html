@@ -1,0 +1,56 @@
+<form autocomplete="off" [formGroup]="forma" (ngSubmit)="saveForm()" *ngIf="!isCorrectCreation && this.categories">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>Nueva subcategoria</h1>
+          <hr>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col form-group">
+          <label for="inputCategoria">Categoria</label>
+          <select id="inputCategoria" formControlName="category"
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('category')"
+          #mySelect (change)="onCategorySelected(mySelect.value)">
+            <option [ngValue]="null" disabled>Selecciona una categoría</option>
+            <option *ngFor="let category of this.categories" [value]="category._id">
+              {{category.name}}
+            </option>
+          </select>
+          <small class="form-text text-danger" *ngIf="isFieldInvalid('category')">La categoria es requerida</small>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col form-group">
+          <label for="inputName">Nombre</label>
+          <input type="text" class="form-control" id="inputName" formControlName="name"
+            [class.is-invalid]="isFieldInvalid('name')">
+          <small class="form-text text-danger" *ngIf="isFieldInvalid('name')">El nombre debe tener al menos 3
+            letras</small>
+        </div>
+      </div>
+      <div class="form-row">
+          <div class="col form-group">
+            <label for="inputDescription">Description</label>
+            <input type="text" class="form-control" id="inputDescription" formControlName="description"
+              [class.is-invalid]="isFieldInvalid('description')">
+          </div>
+        </div>
+      <div class="form-row">
+        <div class="col form-group">
+          <button type="submit" class="btn btn-block btn-primary">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+  <div class="container mb-3" *ngIf="isCorrectCreation">
+    <div class="row">
+      <div class="col">
+        <h1>Gracias por crear la subcategoría {{this.name}}, crea otra nueva</h1>
+        <hr>
+        <a routerLink="/add-subcategory" (click)="refreshFormValues()" class="btn btn-block btn-primary">Nueva subcategoría</a>
+      </div>
+    </div>
+  </div>

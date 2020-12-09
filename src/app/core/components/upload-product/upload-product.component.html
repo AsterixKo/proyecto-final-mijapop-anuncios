@@ -1,4 +1,4 @@
-<form autocomplete="off" [formGroup]="forma" (ngSubmit)="saveForm()" *ngIf="!isCorrectUpload && this.provinces">
+<form autocomplete="off" [formGroup]="forma" (ngSubmit)="saveForm()" *ngIf="!isCorrectUpload && this.provinces && this.categories">
   <div class="container">
     <div class="row">
       <div class="col">
@@ -38,7 +38,7 @@
         [class.is-invalid]="isFieldInvalid('category')"
         #mySelect (change)="onCategorySelected(mySelect.value)">
           <option [ngValue]="null" disabled>Selecciona una categoría</option>
-          <option *ngFor="let category of this.categories" [value]="category.id">
+          <option *ngFor="let category of this.categories" [value]="category._id">
             {{category.name}}
           </option>
         </select>
@@ -52,7 +52,7 @@
         class="form-control"
         [class.is-invalid]="isFieldInvalid('subcategory')">
           <option [ngValue]="null" disabled>Selecciona una subcategoría</option>
-          <option *ngFor="let subcategory of this.subcategories" [value]="subcategory.id">
+          <option *ngFor="let subcategory of this.subcategories" [value]="subcategory._id">
             {{subcategory.name}}
           </option>
         </select>

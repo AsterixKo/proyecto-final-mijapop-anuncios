@@ -15,7 +15,12 @@ export class FooterComponent implements OnInit {
   constructor(private mijapopService: MijapopService) { }
 
   ngOnInit(): void {
-    this.categoryArray = this.mijapopService.getCategories();
+    // this.categoryArray = this.mijapopService.getCategories();
+    this.mijapopService.getCategories().subscribe((data) => {
+      this.categoryArray = data;
+    }, (error) => {
+      console.log(error);
+    });
     this.townArray = this.mijapopService.getTownsFooter();
   }
 

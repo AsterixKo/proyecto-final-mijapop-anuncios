@@ -37,18 +37,17 @@ export class UploadProductComponent implements OnInit {
 
     this.mijapopService.getProvincesOrderedByName().subscribe((data) => {
       // console.log('provinces:',data);
-      for (const province of data) {
-        const provinceToAdd = new ProvinceModel();
-        provinceToAdd._id =province["_id"];
-        provinceToAdd.name = province["name"];
-        // console.log('provinceToAdd:', provinceToAdd);
-        this.provinces.push(provinceToAdd);
-      }
+      this.provinces = data;
+      // console.log(this.provinces);
     }, (error) => {
       console.log(error);
     });
 
-    this.categories = this.mijapopService.getCategories();
+    this.mijapopService.getCategories().subscribe((data) => {
+      this.categories = data;
+    }, (error) => {
+      console.log(error);
+    });
     this.productStatusArray = this.mijapopService.getAllProductStatus();
   }
 
@@ -165,7 +164,11 @@ export class UploadProductComponent implements OnInit {
 
   onCategorySelected(value: string) {
     console.log("the selected category is", value);
-    this.subcategories = this.mijapopService.getSubcategoriesByCategoryId(value);
+    this.mijapopService.getSubcategoriesByCategoryId(value).subscribe((data) => {
+      this.subcategories = data;
+    }, (error) => {
+
+    });
   }
 
   refreshIsCorrectUpload() {
