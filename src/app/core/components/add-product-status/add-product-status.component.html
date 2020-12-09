@@ -1,0 +1,35 @@
+<form autocomplete="off" [formGroup]="forma" (ngSubmit)="saveForm()" *ngIf="!isCorrectCreation">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Nuevo productStatus</h1>
+        <hr>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="inputName">Nombre</label>
+        <input type="text" class="form-control" id="inputName" formControlName="name"
+          [class.is-invalid]="isFieldInvalid('name')">
+        <small class="form-text text-danger" *ngIf="isFieldInvalid('name')">El nombre debe tener al menos 3
+          letras</small>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <button type="submit" class="btn btn-block btn-primary">Enviar</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="container mb-3" *ngIf="isCorrectCreation">
+  <div class="row">
+    <div class="col">
+      <h1>Gracias por crear el productStatus {{this.name}}, crea otra nueva</h1>
+      <hr>
+      <a routerLink="/add-product-status" (click)="refreshFormValues()" class="btn btn-block btn-primary">Nueva
+        productStatus</a>
+    </div>
+  </div>
+</div>

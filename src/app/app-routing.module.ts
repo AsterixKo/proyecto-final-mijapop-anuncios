@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddCategoryComponent } from './core/components/add-category/add-category.component';
+import { AddProductStatusComponent } from './core/components/add-product-status/add-product-status.component';
 import { AddProvinceComponent } from './core/components/add-province/add-province.component';
 import { AddSubcategoryComponent } from './core/components/add-subcategory/add-subcategory.component';
 import { FavoritesComponent } from './core/components/favorites/favorites.component';
@@ -47,6 +48,7 @@ const routes: Routes = [
   { path: 'add-province', component: AddProvinceComponent, canActivate: [AuthGuard] },
   { path: 'add-category', component: AddCategoryComponent, canActivate: [AuthGuard] },
   { path: 'add-subcategory', component: AddSubcategoryComponent, canActivate: [AuthGuard] },
+  { path: 'add-product-status', component: AddProductStatusComponent, canActivate: [AuthGuard] },
   { path: 'footer-who', component: FooterWhoComponent },
   { path: 'footer-press', component: FooterPressComponent },
   { path: 'footer-jobs', component: FooterJobsComponent },

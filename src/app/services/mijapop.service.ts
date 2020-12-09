@@ -307,8 +307,8 @@ export class MijapopService implements OnInit {
     // return provincesOrdered;
   }
 
-  getAllProductStatus(): ProductStatusModel[] {
-    return this.productStatusArray;
+  getAllProductStatus(): Observable<ProductStatusModel[]> {
+    return this.http.get<ProductStatusModel[]>(this.urlBase + 'productStatus/');
   }
 
   addNewProduct(product: ProductModel) {
@@ -325,5 +325,9 @@ export class MijapopService implements OnInit {
 
   addNewSubategory(subcategory: SubcategoryModel): Observable<SubcategoryModel> {
     return this.http.post<SubcategoryModel>(this.urlBase + 'subcategories/', subcategory);
+  }
+
+  addNewProductStatus(productStatus: ProductStatusModel): Observable<ProductStatusModel> {
+    return this.http.post<ProductStatusModel>(this.urlBase + 'productStatus/', productStatus);
   }
 }
