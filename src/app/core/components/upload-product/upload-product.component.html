@@ -1,4 +1,4 @@
-<form autocomplete="off" [formGroup]="forma" (ngSubmit)="saveForm()" *ngIf="!isCorrectUpload && this.provinces && this.categories && this.productStatusArray">
+<form autocomplete="off" [formGroup]="forma" (ngSubmit)="saveForm()" *ngIf="!isCorrectUpload && !this.errorInApi && this.provinces && this.categories && this.productStatusArray">
   <div class="container">
     <div class="row">
       <div class="col">
@@ -26,7 +26,7 @@
     </div>
     <div class="form-row">
       <div class="col form-group">
-        <label for="inputDescription">Description</label>
+        <label for="inputDescription">Descripción</label>
         <input type="text" class="form-control" id="inputDescription" formControlName="description">
       </div>
     </div>
@@ -66,7 +66,7 @@
         class="form-control"
         [class.is-invalid]="isFieldInvalid('province')">
           <option [ngValue]="null" disabled>Selecciona una provincia</option>
-          <option *ngFor="let province of this.provinces" [value]="province.name">
+          <option *ngFor="let province of this.provinces" [value]="province._id">
             {{province.name}}
           </option>
         </select>
@@ -80,7 +80,7 @@
         class="form-control"
         [class.is-invalid]="isFieldInvalid('productStatus')">
           <option [ngValue]="null" disabled>Selecciona un estado</option>
-          <option *ngFor="let productStatus of this.productStatusArray" [value]="productStatus.name">
+          <option *ngFor="let productStatus of this.productStatusArray" [value]="productStatus._id">
             {{productStatus.name}}
           </option>
         </select>
@@ -172,6 +172,15 @@
       <h1>Tu producto {{this.productName}} se ha subido correctamente. Gracias {{this.userName}}.</h1>
       <hr>
       <a routerLink="/upload-product" (click)="refreshIsCorrectUpload()" class="btn btn-block btn-primary">Subir nuevo producto</a>
+    </div>
+  </div>
+</div>
+<div class="container mb-3" *ngIf="errorInApi">
+  <div class="row">
+    <div class="col">
+      <h1>Error subiendo {{this.productName}}. Vuelve a intentarlo de nuevo, {{this.userName}}.</h1>
+      <hr>
+      <a routerLink="/upload-product" (click)="refreshWithErrorInApi()" class="btn btn-block btn-primary">Subir nuevo producto</a>
     </div>
   </div>
 </div>

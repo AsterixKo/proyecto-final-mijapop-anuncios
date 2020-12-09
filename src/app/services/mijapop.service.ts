@@ -311,8 +311,8 @@ export class MijapopService implements OnInit {
     return this.http.get<ProductStatusModel[]>(this.urlBase + 'productStatus/');
   }
 
-  addNewProduct(product: ProductModel) {
-    this.productsArray.push(product);
+  addNewProduct(product: ProductModel): Observable<ProductModel> {
+    return this.http.post<ProductModel>(this.urlBase + 'products/', product);
   }
 
   addNewProvince(province: ProvinceModel): Observable<ProvinceModel> {
