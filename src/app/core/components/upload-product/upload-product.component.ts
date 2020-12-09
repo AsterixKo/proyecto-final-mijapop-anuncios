@@ -48,7 +48,11 @@ export class UploadProductComponent implements OnInit {
     }, (error) => {
       console.log(error);
     });
-    this.productStatusArray = this.mijapopService.getAllProductStatus();
+    this.mijapopService.getAllProductStatus().subscribe((data) => {
+      this.productStatusArray = data;
+    }, (error) => {
+      console.log(error);
+    });
   }
 
   createForm() {
