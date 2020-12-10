@@ -25,12 +25,12 @@ export class ProductDetailComponent implements OnInit {
       console.log(params);
       this.id = params['id'];
 
-      // this.mijapopService.findProductById(this.id).subscribe((data) => {
-      //   this.product = data;
-      //   console.log('product:', this.product);
-      // }, (error) => {
-      //   console.log('error:', error);
-      // });
+      this.mijapopService.findProductById(this.id).subscribe((data) => {
+        this.product = data;
+        console.log('product:', this.product);
+      }, (error) => {
+        console.log('error:', error);
+      });
     });
 
   }

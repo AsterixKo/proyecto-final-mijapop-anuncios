@@ -331,7 +331,11 @@ export class MijapopService implements OnInit {
     return this.http.post<ProductStatusModel>(this.urlBase + 'productStatus/', productStatus);
   }
 
-  findProductBySearch(query: string): Observable<ProductModel[]>{
+  findProductBySearch(query: string): Observable<ProductModel[]> {
     return this.http.get<ProductModel[]>(this.urlBase + 'products/search/' + query);
+  }
+
+  findProductById(id: string): Observable<ProductModel> {
+    return this.http.get<ProductModel>(this.urlBase + 'products/' + id);
   }
 }
