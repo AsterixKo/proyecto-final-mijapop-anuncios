@@ -10,6 +10,7 @@ import { MyProductsMarketComponent } from './core/components/my-products-market/
 import { MyProductsSoldComponent } from './core/components/my-products-sold/my-products-sold.component';
 import { ProductDetailComponent } from './core/components/product-detail/product-detail.component';
 import { ProductsCategoryComponent } from './core/components/products-category/products-category.component';
+import { ProductsProvinceComponent } from './core/components/products-province/products-province.component';
 import { ProductsSubcategoryComponent } from './core/components/products-subcategory/products-subcategory.component';
 import { ProductsTownComponent } from './core/components/products-town/products-town.component';
 import { ProfileComponent } from './core/components/profile/profile.component';
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: 'product-detail/:id', component: ProductDetailComponent },
   { path: 'products-category/:category', component: ProductsCategoryComponent },
   { path: 'products-subcategory/:subcategory', component: ProductsSubcategoryComponent },
+  { path: 'products-province/:province', component: ProductsProvinceComponent },
   { path: 'products-town/:town', component: ProductsTownComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent },
