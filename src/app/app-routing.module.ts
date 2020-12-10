@@ -37,7 +37,7 @@ const routes: Routes = [
   { path: 'messages', component: MessagesComponent, canActivate: [AuthGuard] },
   { path: 'my-products-market', component: MyProductsMarketComponent, canActivate: [AuthGuard] },
   { path: 'my-products-sold', component: MyProductsSoldComponent, canActivate: [AuthGuard] },
-  { path: 'product-detail', component: ProductDetailComponent },
+  { path: 'product-detail/:id', component: ProductDetailComponent },
   { path: 'products-category/:category', component: ProductsCategoryComponent },
   { path: 'products-subcategory/:subcategory', component: ProductsSubcategoryComponent },
   { path: 'products-town/:town', component: ProductsTownComponent },

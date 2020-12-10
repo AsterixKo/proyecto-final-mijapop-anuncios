@@ -1,1 +1,20 @@
-<p>product-card works!</p>
+<div class="my-card d-flex mb-2">
+  <div class="my-card-image p-2">
+    <figure class="my-figure">
+      <img class="my-img" src="{{product.photo1}}" />
+    </figure>
+
+  </div>
+  <div class="my-card-content p-2">
+    <div class="my-card-price">{{product.price}}</div>
+    <div class="my-card-name btn btn-link text-dark" [routerLink]="['/product-detail', product._id]">
+      {{product.name}}</div>
+    <div class="my-card-category-subcategory">
+      <span class="btn btn-success"
+        [routerLink]="['/products-category', product.category._id]">{{product.category.name}}</span>
+      <span class="btn btn-link"
+        [routerLink]="['/products-subcategory', product.subcategory._id]">{{product.subcategory.name}}</span>
+    </div>
+    <div class="my-card-description">{{product.description}}</div>
+  </div>
+</div>
