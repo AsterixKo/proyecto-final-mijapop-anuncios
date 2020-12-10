@@ -8,11 +8,11 @@
     <div class="row">
       <div class="col d-flex flex-wrap">
         <div class="m-1" *ngFor="let category of categoryArray">
-          <a [routerLink]="['/products-category', category.name]" class="btn btn-success">
+          <a [routerLink]="['/products-category', category._id]" class="btn btn-success">
             <h6>{{category.name}}</h6>
           </a>
           <div *ngFor="let subcategory of category.subcategories">
-            <a [routerLink]="['/products-subcategory', subcategory.name]"><span>{{subcategory.name}}</span></a>
+            <a [routerLink]="['/products-subcategory', subcategory._id]"><span>{{subcategory.name}}</span></a>
           </div>
         </div>
 
