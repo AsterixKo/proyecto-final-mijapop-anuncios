@@ -7,6 +7,7 @@ import { SubcategoryModel } from '../models/subcategory.model';
 import { UserModel } from '../models/user.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ProductFavoriteModel } from '../models/product-favorite.model';
 
 @Injectable({
   providedIn: 'root',
@@ -337,5 +338,21 @@ export class MijapopService implements OnInit {
 
   findProductById(id: string): Observable<ProductModel> {
     return this.http.get<ProductModel>(this.urlBase + 'products/' + id);
+  }
+
+  findProductFavoriteByProductIdAndUserFavoriteId(productId: string, userId: string): Observable<ProductFavoriteModel> {
+    return this.http.get<ProductFavoriteModel>(this.urlBase + `productFavorites/productAndUser/${productId}/${userId}`);
+  }
+
+  saveOnProductFavorite(productFavorite: ProductFavoriteModel): Observable<ProductFavoriteModel> {
+    return this.http.post<ProductFavoriteModel>(this.urlBase + 'productFavorites/', productFavorite);
+  }
+
+  deleteFromProductFavorite(productFavorite: ProductFavoriteModel): Observable<ProductFavoriteModel> {
+    return this.http.delete<ProductFavoriteModel>(this.urlBase + 'productFavorites/' + productFavorite._id);
+  }
+
+  updateProduct(product: ProductModel): Observable<ProductModel> {
+    return this.http.put(this.urlBase + `products/${product._id}`, product);
   }
 }

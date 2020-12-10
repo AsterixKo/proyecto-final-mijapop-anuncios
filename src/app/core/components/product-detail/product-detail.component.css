@@ -1,0 +1,29 @@
+.container-big{
+    background-color: #ECEFF1;
+}
+
+.product-container{
+    background-color: white;
+    border-radius: 10px;
+}
+
+.my-figure{
+    width: 477px;
+    /* height: 477px; */
+}
+
+.my-img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+}
+
+.product-price{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.product-name{
+    font-weight: bold;
+    font-size: 1.8rem;
+}

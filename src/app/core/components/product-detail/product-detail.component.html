@@ -1,17 +1,50 @@
-<div class="container">
+<div class="container-big" *ngIf="product">
+  <div class="container">
     <div class="row">
-        <div class="col">
-            <div class="product-container">
-                <div class="product-image">
-                    <figure>
-                        <img src="{{product.photo1}}"/>
-                    </figure>
-                </div>
-                <div class="product-text-content">
-                    <div class="product-price">{{product.price}}</div>
-                    <div class="product-name">{{product.name}}</div>
-                </div>
-            </div>
+      <div class="col">
+        <div class="product-container my-2 p-4 d-flex justify-content-md-center">
+          <div class="product-image">
+            <figure class="my-figure">
+              <img class="my-img" src="{{product.photo1}}" />
+            </figure>
+          </div>
         </div>
+      </div>
     </div>
+    <div class="row">
+      <div class="col">
+        <div class="product-container my-2 p-4">
+          <div class="product-text-content">
+            <div class="product-price">{{product.price}} {{product.currency}}</div>
+            <div class="product-name mb-2">{{product.name}}</div>
+            <div class="product-province-and-city mb-2">
+              <span class="font-weight-bold">Provincia: </span> <span class="btn btn-link"
+                [routerLink]="['/products-province', product.province._id]">{{product.province.name}}</span>
+              <span class="font-weight-bold ml-1">Ciudad: </span> <span class="btn btn-link"
+                [routerLink]="['/products-town', product.town]">{{product.town}}</span>
+            </div>
+            <div class="product-category-subcategory mb-2">
+              <span class="btn btn-success"
+                [routerLink]="['/products-category', product.category._id]">{{product.category.name}}</span>
+              <span class="btn btn-link"
+                [routerLink]="['/products-subcategory', product.subcategory._id]">{{product.subcategory.name}}</span>
+            </div>
+            <div class="product-user-owner mb-2">
+              <span class="font-weight-bold">Vendedor: </span>
+              <span>{{product.userOwner.name}}</span>
+            </div>
+            <div><button type="button" class="btn btn-primary">Contactar</button>
+              <button type="button" *ngIf="!this.isFavorite" (click)="saveOnFavorites()" class="btn btn-info ml-1">Guardar en favoritos</button>
+              <button type="button" *ngIf="this.isFavorite" (click)="deleteFromFavorites()" class="btn btn-info ml-1">Eliminar de favoritos</button>
+              <button type="button" *ngIf="this.isMyProduct && product.isSold" (click)="activateProduct()" class="btn btn-secondary ml-1">Poner en venta de nuevo</button>
+              <button type="button" *ngIf="this.isMyProduct && !product.isSold" (click)="deactivateProduct()" class="btn btn-secondary ml-1">Desactivar producto de venta</button>
+            </div>
+            <hr>
+            <div class="product-description-title font-weight-bold">Descripción:</div>
+            <div class="product-description">{{product.description}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
