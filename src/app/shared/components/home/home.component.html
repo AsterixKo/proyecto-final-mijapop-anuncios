@@ -1,5 +1,341 @@
-<div class="container">
-  <div class="row">
+<div class="container my-4">
+
+  <div class="row fila">
+    <div class="col columna d-flex justify-content-center">
+      <h2>¿Qué estás buscando?</h2>
+    </div>
+  </div>
+
+  <hr class="my-4">
+
+  <!--Carousel Wrapper-->
+  <div id="multi-item-carousel-icon" class="carousel slide carousel-multi-item" data-ride="carousel" data-interval="false">
+
+    <!--Controls-->
+
+    <a href="#multi-item-carousel-icon" class="carousel-control-prev" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Anterior</span>
+    </a>
+
+    <a href="#multi-item-carousel-icon" class="carousel-control-next" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Siguiente</span>
+    </a>
+
+    <!--/.Controls-->
+
+    <!--Indicators-->
+    <ol class="carousel-indicators">
+      <li data-target="#multi-item-carousel-icon" data-slide-to="0" class="active"></li>
+      <li data-target="#multi-item-carousel-icon" data-slide-to="1"></li>
+      <li data-target="#multi-item-carousel-icon" data-slide-to="2"></li>
+      <li data-target="#multi-item-carousel-icon" data-slide-to="3"></li>
+      <li data-target="#multi-item-carousel-icon" data-slide-to="4"></li>
+      <li data-target="#multi-item-carousel-icon" data-slide-to="5"></li>
+      <li data-target="#multi-item-carousel-icon" data-slide-to="6"></li>
+      <li data-target="#multi-item-carousel-icon" data-slide-to="7"></li>
+    </ol>
+    <!--/.Indicators-->
+
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+
+      <!--First slide-->
+      <div class="carousel-item active">
+
+        <div class="row">
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2 card">
+              <div class="card-body text-center">
+                <a [routerLink]="['/products-category', 'Coches']" class="btn btn-outline-info float-right"><img class="icon-main"
+                    src="assets/image/icons/cat/2.png" alt="Card image cap"> Coches</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/3.png" alt="Card image cap"> -->
+              <div class="card-body text-center">
+                <!-- <a class="btn btn-primary">Motos</a> -->
+                <a [routerLink]="['/products-category', 'Motor y accesorios']" class="btn btn-outline-info float-none"><img class="icon-main"
+                    src="assets/image/icons/cat/4.png" alt="Card image cap"> Accesorios</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/4.png" alt="Card image cap"> -->
+              <div class="card-body">
+                <!-- <a class="btn btn-primary">Motor y <br class="my-4"> Accesorios</a> -->
+                <a [routerLink]="['/products-category', 'Motos']" class="btn btn-outline-info float-left"><img
+                    class="icon-main" src="assets/image/icons/cat/3.png" alt="Card image cap"> Motos</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--/.First slide-->
+
+      <!--Second slide-->
+      <div class="carousel-item">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/fashion.png" alt="Card image cap"> -->
+              <div class="card-body">
+                <!-- <a class="btn btn-primary">Moda y Complementos</a> -->
+                <a [routerLink]="['/products-category', 'Moda y accesorios']" class="btn btn-outline-info float-right"><img
+                    class="icon-main" src="assets/image/icons/cat/fashion.png" alt="Card image cap"> Moda</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/real-states.png" alt="Card image cap"> -->
+              <div class="card-body text-center">
+                <!-- <a class="btn btn-primary">Inmoviliaria</a> -->
+                <a [routerLink]="['/products-category', 'Hogar y Jardín']" class="btn btn-outline-info"><img
+                    class="icon-main" src="assets/image/icons/cat/tvs.png" alt="Card image cap">
+                  Tv, Audio y Foto</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/tvs.png" alt="Card image cap"> -->
+              <div class="card-body">
+                <!-- <a class="btn btn-primary">Tv, Audio y foto</a> -->
+                <a [routerLink]="['/products-category', 'Tv, Audio y Foto']" class="btn btn-outline-info"><img
+                    class="icon-main" src="assets/image/icons/cat/homes.png" alt="Card image cap"> Hogar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--/.Second slide-->
+
+      <!--Third slide-->
+      <div class="carousel-item">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/mobiles.png" alt="Card image cap"> -->
+              <div class="card-body text-center">
+                <!-- <a class="btn btn-primary">Móviles y telefonía</a> -->
+                <a [routerLink]="['/products-category', 'Móviles y telefonía']" class="btn btn-outline-info float-right"><img
+                    class="icon-main" src="assets/image/icons/cat/mobiles.png" alt="Card image cap"> Móviles</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/pcs.png" alt="Card image cap"> -->
+              <div class="card-body">
+                <!-- <a class="btn btn-primary">Informática y Electrónica</a> -->
+                <a [routerLink]="['/products-category', 'Informática y Electrónica']" class="btn btn-outline-info"><img
+                    class="icon-main" src="assets/image/icons/cat/pcs.png" alt="Card image cap"> Informática</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/sport.png" alt="Card image cap"> -->
+              <div class="card-body">
+                <!-- <a class="btn btn-primary">Deportes</a> -->
+                <a [routerLink]="['/products-category', 'Deporte y Ocio']" class="btn btn-outline-info float-left"><img
+                    class="icon-main" src="assets/image/icons/cat/sport.png" alt="Card image cap"> Deportes</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--/.Third slide-->
+
+      <!--Fourth slide-->
+      <div class="carousel-item">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/bikes.png" alt="Card image cap"> -->
+              <div class="card-body">
+                <!-- <a class="btn btn-primary">Bicicletas</a> -->
+                <a [routerLink]="['/search', 'Bicicletas']" class="btn btn-outline-info float-right"><img class="icon-main"
+                    src="assets/image/icons/cat/bikes.png" alt="Card image cap"> Bicicletas</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/home-sofa.png" alt="Card image cap"> -->
+              <div class="card-body text-center">
+                <!-- <a class="btn btn-primary">Hogar</a> -->
+                <a [routerLink]="['/products-category', 'Inmoviliaria']" class="btn btn-outline-info"><img
+                    class="icon-main" src="assets/image/icons/cat/real-states.png" alt="Card image cap"> Inmoviliaria</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/iron.png" alt="Card image cap"> -->
+              <div class="card-body">
+                <!-- <a class="btn btn-primary">Electrodomésticos</a> -->
+                <a [routerLink]="['/products-category', 'Consolas y Videojuegos']" class="btn btn-outline-info float-left"><img
+                    class="icon-main" src="assets/image/icons/cat/console.png" alt="Card image cap"> Consolas</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--/.Fourth slide-->
+
+      <!--Fifth slide-->
+      <div class="carousel-item">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/book.png" alt="Card image cap"> -->
+              <div class="card-body">
+                <!-- <a class="btn btn-primary">Cine, libros y Música</a> -->
+                <a [routerLink]="['/products-category', 'Electrodomésticos']" class="btn btn-outline-info float-right"><img
+                    class="icon-main" src="assets/image/icons/cat/iron.png" alt="Card image cap"> Electro</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/babys.png" alt="Card image cap"> -->
+              <div class="card-body text-center">
+                <!-- <a class="btn btn-primary">Niños y bebes</a> -->
+                <a [routerLink]="['/products-category', 'Cine, Libros y Música']" class="btn btn-outline-info"><img
+                    class="icon-main" src="assets/image/icons/cat/book.png" alt="Card image cap">  Cultura</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/vintages.png" alt="Card image cap"> -->
+              <div class="card-body">
+                <!-- <a class="btn btn-primary">Coleccionismo</a> -->
+                <a [routerLink]="['/products-category', 'Niños y Bebés']" class="btn btn-outline-info float-left"><img
+                    class="icon-main" src="assets/image/icons/cat/babys.png" alt="Card image cap"> Niños</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--/.Fifth slide-->
+
+      <!--Sixth slide-->
+      <div class="carousel-item">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/farms.png" alt="Card image cap"> -->
+              <div class="card-body">
+                <!-- <a class="btn btn-primary">Industria y agricultura</a> -->
+                <a [routerLink]="['/products-category', 'Coleccionismo']" class="btn btn-outline-info float-right"><img
+                    class="icon-main" src="assets/image/icons/cat/vintages.png" alt="Card image cap"> Vintage</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/jobs.png" alt="Card image cap"> -->
+              <div class="card-body text-center">
+                <!-- <a class="btn btn-primary">Empleo</a> -->
+                <a [routerLink]="['/products-category', 'Industria y Agricultura']" class="btn btn-outline-info"><img
+                    class="icon-main" src="assets/image/icons/cat/farms.png" alt="Card image cap"> Agricultura</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/other.png" alt="Card image cap"> -->
+              <div class="card-body">
+                <!-- <a class="btn btn-primary">Otros</a> -->
+                <a [routerLink]="['/products-category', 'Contrucción y Reformas']" class="btn btn-outline-info float-left"><img
+                    class="icon-main" src="assets/image/icons/cat/bricks.png" alt="Card image cap"> Reformas</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--/.Sixth slide-->
+
+      <!--Seventh slide-->
+      <div class="carousel-item">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/farms.png" alt="Card image cap"> -->
+              <div class="card-body">
+                <!-- <a class="btn btn-primary">Industria y agricultura</a> -->
+                <a [routerLink]="['/products-category', 'Empleo']" class="btn btn-outline-info float-right"><img
+                    class="icon-main" src="assets/image/icons/cat/jobs.png" alt="Card image cap"> Empleo</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/jobs.png" alt="Card image cap"> -->
+              <div class="card-body text-center">
+                <!-- <a class="btn btn-primary">Empleo</a> -->
+                <a [routerLink]="['/products-category', 'Servicios']" class="btn btn-outline-info"><img
+                    class="icon-main" src="assets/image/icons/cat/service.png" alt="Card image cap"> Servicio</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <!-- <img class="icon-main" src="assets/image/icons/cat/other.png" alt="Card image cap"> -->
+              <div class="card-body">
+                <!-- <a class="btn btn-primary">Otros</a> -->
+                <a [routerLink]="['/products-category', 'Otros']" class="btn btn-outline-info float-left"><img
+                    class="icon-main" src="assets/image/icons/cat/other.png" alt="Card image cap"> Otros</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--/.Sevent¡th slide-->
+      <!--/.Slides-->
+
+    </div>
+    <!--/.Carousel Wrapper-->
+
+
+  </div>
+
+
+  <!-- <div class="row">
     <div class="col d-flex justify-content-center">
       <p>mijapop, la mejor plataforma de compraventa de productos de Segunda mano</p>
     </div>
@@ -14,242 +350,247 @@
 
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Coches']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-car2.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/car.png" alt="Card image cap">
           <span>Coches</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Motos']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-moto.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/moto.png" alt="Card image cap">
           <span>Motos</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Motos y accesorios']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-motor.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/motor.png" alt="Card image cap">
           <span>Motor y Accesorios</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Moda y accesorios']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-fashion.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/moda.png" alt="Card image cap">
           <span>Moda y Accesorios</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Inmobiliaria']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-real-state.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/real-state.png" alt="Card image cap">
           <span>Inmobiliaria</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Tv, Audio y Foto']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-tv.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/tv.png" alt="Card image cap">
           <span>TV, Audio y Foto</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Móviles y telefonía']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-mobile.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/movil.png" alt="Card image cap">
           <span>Móviles y telefonía</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Informática y Electrónica']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-computing.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/pc.png" alt="Card image cap">
           <span>Informática y Electrónica</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Deporte y Ocio']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-sport.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/sports.png" alt="Card image cap">
           <span>Deporte y Ocio</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Bicicletas']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-bicycle.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/bike.png" alt="Card image cap">
           <span>Bicicletas</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Consolas y Videojuegos']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-videogames.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/videogames.png" alt="Card image cap">
           <span>Consolas y Videojuegos</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Hogar y Jardín']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-home-3.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/home.png" alt="Card image cap">
           <span>Hogar y Jardín</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Electrodomésticos']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-home-appliance.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/home-appliances.png" alt="Card image cap">
           <span>Electrodomésticos</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Cine, Libros y Música']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-music.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/books.png" alt="Card image cap">
           <span>Cine, Libros y Música</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Niños y Bebés']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-baby.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/baby.png" alt="Card image cap">
           <span>Niños y Bebés</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Coleccionismo']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-collecting.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/collecting.png" alt="Card image cap">
           <span>Coleccionismo</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Contrucción y Reformas']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-tool.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/building.png" alt="Card image cap">
           <span>Contrucción y Reformas</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Industria y Agricultura']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-farming.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/industry.png" alt="Card image cap">
           <span>Industria y Agricultura</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Empleo']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-job.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/job.png" alt="Card image cap">
           <span>Empleo</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Servicios']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-service.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/services.png" alt="Card image cap">
           <span>Servicios</span>
         </a>
       </div>
       <div class="icons m-1">
         <a class="d-flex flex-column" [routerLink]="['/products-category', 'Otros']">
-          <img class="icon-main" src="assets/image/icons/icon-cat-other.png" alt="Card image cap">
+          <img class="icon-main" src="assets/image/icons/cat/others.png" alt="Card image cap">
           <span>Otros</span>
         </a>
       </div>
 
     </div>
-  </div>
+  </div> -->
 
-  <div class="row fila">
-    <div class="col columna d-flex justify-content-center">
-      <h2>Productos destacados del momento</h2>
-    </div>
-  </div>
 
-  <div class="row fila">
-    <div class="col-md-4 col-sm-12  columna">
-      <div class="card" style="width: 14rem;">
-        <img class="card-img-top my-card-image" src="assets/image/products/sofa.png" alt="Card image cap">
-        <div class="card-body">
-          <!-- <h5 class="card-title">Sofa</h5> -->
-          <p class="card-text">115.333 anuncios</p>
-          <a [routerLink]="['/search', 'Sofas']" class="btn btn-info">Sofas</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 col-sm-12 columna">
-      <div class="card" style="width: 14rem;">
-        <img class="card-img-top my-card-image" src="assets/image/products/estufa.png" alt="Card image cap">
-        <div class="card-body">
-          <!-- <h5 class="card-title">Estufa</h5> -->
-          <p class="card-text">16.002 anuncios</p>
-          <a [routerLink]="['/search', 'Estufas']" class="btn btn-info">Estufas</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 col-sm-12 columna">
-      <div class="card" style="width: 14rem;">
-        <img class="card-img-top my-card-image" src="assets/image/products/carpet.png" alt="Card image cap">
-        <div class="card-body">
-          <!-- <h5 class="card-title">Alfombra</h5> -->
-          <p class="card-text">32.093 anuncios</p>
-          <a [routerLink]="['/search', 'Alfombras']" class="btn btn-info">Alfombras</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="row fila">
-    <div class="col columna d-flex justify-content-center">
-      <h2>Productos destacados del momento</h2>
-    </div>
-  </div>
 
-  <div class="row fila">
-    <div class="col-md-4 col-sm-12  columna">
-      <div class="card" style="width: 14rem;">
-        <img class="card-img-top my-card-image" src="assets/image/products/vestido-novia.png" alt="Card image cap">
-        <div class="card-body">
-          <!-- <h5 class="card-title">Vestido de novia</h5> -->
-          <p class="card-text">39.735 anuncios</p>
-          <a [routerLink]="['/search', 'Patinétes eléctricos']" class="btn btn-info">Vestido de novia</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 col-sm-12 columna">
-      <div class="card" style="width: 14rem;">
-        <img class="card-img-top my-card-image" src="assets/image/products/surf-skate.png" alt="Card image cap">
-        <div class="card-body">
-          <!-- <h5 class="card-title">Surf skate</h5> -->
-          <p class="card-text">56.935 anuncios</p>
-          <a [routerLink]="['/search', 'Bicicleta estática']" class="btn btn-info">Surf skate</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 col-sm-12  columna">
-      <div class="card" style="width: 14rem;">
-        <img class="card-img-top my-card-image" src="assets/image/products/urban-scooter.png" alt="Card image cap">
-        <div class="card-body">
-          <!-- <h5 class="card-title">Urban scooter</h5> -->
-          <p class="card-text">15.845 anuncios</p>
-          <a [routerLink]="['/search', 'Bicicletas de montaña']" class="btn btn-info">Urban scooter</a>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 
-  <div class="row fila">
-    <div class="col-md-4 col-sm-12  columna">
-      <div class="card" style="width: 14rem;">
-        <img class="card-img-top my-card-image" src="assets/image/products/electric-longboard.png" alt="Card image cap">
-        <div class="card-body">
-          <!-- <h5 class="card-title">Vestido de novia</h5> -->
-          <p class="card-text">8.678 anuncios</p>
-          <a [routerLink]="['/search', 'Patinétes eléctricos']" class="btn btn-info">Longboard eléctrico</a>
+<div class="home-section-wrapper">
+  <div class="container">
+    <div class="row fila">
+      <div class="col columna d-flex justify-content-center">
+        <h2>Productos destacados del momento</h2>
+      </div>
+    </div>
+
+    <div class="row fila">
+      <div class="col-md-4 col-sm-12  columna">
+        <div class="card" style="width: 14rem;">
+          <img class="card-img-top my-card-image" src="assets/image/products/sofa.png" alt="Card image cap">
+          <div class="card-body">
+            <!-- <h5 class="card-title">Sofa</h5> -->
+            <p class="card-text">115.333 anuncios</p>
+            <!-- <a [routerLink]="['/search', 'Sofas']" class="btn btn-info">Sofas</a> -->
+            <a [routerLink]="['/search', 'sofas']" class="btn btn-info">Ver Sofas</a>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 columna">
+        <div class="card" style="width: 14rem;">
+          <img class="card-img-top my-card-image" src="assets/image/products/estufa.png" alt="Card image cap">
+          <div class="card-body">
+            <!-- <h5 class="card-title">Estufa</h5> -->
+            <p class="card-text">16.002 anuncios</p>
+            <a [routerLink]="['/search', 'Estufas']" class="btn btn-info">Estufas</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 columna">
+        <div class="card" style="width: 14rem;">
+          <img class="card-img-top my-card-image" src="assets/image/products/carpet.png" alt="Card image cap">
+          <div class="card-body">
+            <!-- <h5 class="card-title">Alfombra</h5> -->
+            <p class="card-text">32.093 anuncios</p>
+            <a [routerLink]="['/search', 'Alfombras']" class="btn btn-info">Alfombras</a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-4 col-sm-12 columna">
-      <div class="card" style="width: 14rem;">
-        <img class="card-img-top my-card-image" src="assets/image/products/kettlebell.png" alt="Card image cap">
-        <div class="card-body">
-          <!-- <h5 class="card-title">Surf skate</h5> -->
-          <p class="card-text">1.668 anuncios</p>
-          <a [routerLink]="['/search', 'Bicicleta estática']" class="btn btn-info">Kettlebell</a>
-        </div>
+
+    <div class="row fila">
+      <div class="col columna d-flex justify-content-center">
+        <h2>Para moverte mejor</h2>
       </div>
     </div>
-    <div class="col-md-4 col-sm-12  columna">
-      <div class="card" style="width: 14rem;">
-        <img class="card-img-top my-card-image" src="assets/image/products/electric-bike.png" alt="Card image cap">
-        <div class="card-body">
-          <!-- <h5 class="card-title">Urban scooter</h5> -->
-          <p class="card-text">4.836 anuncios</p>
-          <a [routerLink]="['/search', 'Bicicletas de montaña']" class="btn btn-info">Bicicleta eléctrica</a>
+
+    <div class="row fila">
+      <div class="col-md-6 col-sm-12  columna d-flex justify-content-center">
+        <div class="card" style="width: 22rem;">
+          <img class="card-img-top" src="assets/image/products/urban-scooter.png" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">39.735 anuncios</p>
+            <a [routerLink]="['/search', 'Vestido de novia']" class="btn btn-info">Scooter urbano</a>
+          </div>
         </div>
       </div>
+      <div class="col-md-6 col-sm-12 columna">
+        <div class="card" style="width: 22rem;">
+          <img class="card-img-top" src="assets/image/products/surf-skate.png" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">56.935 anuncios</p>
+            <a [routerLink]="['/search', 'Surf skate']" class="btn btn-info">Surf skate</a>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-md-4 col-sm-12  columna">
+        <div class="card" style="width: 14rem;">
+          <img class="card-img-top my-card-image" src="assets/image/products/urban-scooter.png" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">15.845 anuncios</p>
+            <a [routerLink]="['/search', 'Bicicletas de montaña']" class="btn btn-info">Urban scooter</a>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="row fila">
+      <div class="col-md-6 col-sm-12 col columna d-flex justify-content-center">
+        <div class="card" style="width: 22rem;">
+          <img class="card-img-top" src="assets/image/products/electric-bike.png" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">8.678 anuncios</p>
+            <a [routerLink]="['/search', 'Juegos de mesa']" class="btn btn-info">Bicicleta eléctrica</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12 columna">
+        <div class="card" style="width: 22rem;">
+          <img class="card-img-top" src="assets/image/products/electric-longboard.png" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">1.668 anuncios</p>
+            <a [routerLink]="['/search', 'Bicicleta estática']" class="btn btn-info">Longboard eléctrico</a>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-md-4 col-sm-12  columna">
+        <div class="card" style="width: 14rem;">
+          <img class="card-img-top my-card-image" src="assets/image/products/consola.png" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">4.836 anuncios</p>
+            <a [routerLink]="['/search', 'Consolas']" class="btn btn-info">Consolas</a>
+          </div>
+        </div>
+      </div> -->
     </div>
   </div>
 </div>
