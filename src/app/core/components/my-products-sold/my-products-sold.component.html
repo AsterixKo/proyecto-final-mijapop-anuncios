@@ -1,1 +1,17 @@
-<p>my-products-sold works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Productos vendidos:</h1>
+    </div>
+  </div>
+</div>
+
+<div class="container-big">
+  <div class="container py-2">
+    <div class="row" *ngFor="let product of products">
+      <div class="col">
+        <app-product-card [product]="product"></app-product-card>
+      </div>
+    </div>
+  </div>
+</div>
