@@ -6,7 +6,7 @@
 
   </div>
   <div class="my-card-content p-2">
-    <div class="my-card-price">{{product.price}}</div>
+    <div class="my-card-price">{{product.price}} {{product.currency}}</div>
     <div class="my-card-name btn btn-link text-dark" [routerLink]="['/product-detail', product._id]">
       {{product.name}}</div>
     <div class="my-card-category-subcategory">

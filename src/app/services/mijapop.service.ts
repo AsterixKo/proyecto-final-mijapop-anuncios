@@ -355,4 +355,8 @@ export class MijapopService implements OnInit {
   updateProduct(product: ProductModel): Observable<ProductModel> {
     return this.http.put(this.urlBase + `products/${product._id}`, product);
   }
+
+  findAllProductFavorite(): Observable<ProductFavoriteModel[]> {
+    return this.http.get<ProductFavoriteModel[]>(this.urlBase + 'productFavorites');
+  }
 }
