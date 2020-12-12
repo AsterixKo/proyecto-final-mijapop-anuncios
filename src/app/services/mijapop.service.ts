@@ -356,8 +356,8 @@ export class MijapopService implements OnInit {
     return this.http.put(this.urlBase + `products/${product._id}`, product);
   }
 
-  findAllProductFavorite(): Observable<ProductFavoriteModel[]> {
-    return this.http.get<ProductFavoriteModel[]>(this.urlBase + 'productFavorites');
+  findAllProductFavoriteByUseId(user: UserModel): Observable<ProductFavoriteModel[]> {
+    return this.http.get<ProductFavoriteModel[]>(this.urlBase + `productFavorites/user/${user._id}`);
   }
 
   findAllProductsByUserOwnerAndIsSold(userModel: UserModel): Observable<ProductModel[]>{
