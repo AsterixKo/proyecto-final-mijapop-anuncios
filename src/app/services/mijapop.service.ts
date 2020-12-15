@@ -361,15 +361,23 @@ export class MijapopService implements OnInit {
     return this.http.get<ProductFavoriteModel[]>(this.urlBase + `productFavorites/user/${user._id}`);
   }
 
-  findAllProductsByUserOwnerAndIsSold(userModel: UserModel): Observable<ProductModel[]>{
+  findAllProductsByUserOwnerAndIsSold(userModel: UserModel): Observable<ProductModel[]> {
     return this.http.get<ProductModel[]>(this.urlBase + `products/userOwnerAndIsSold/${userModel._id}`);
   }
 
-  findAllProductsByUserOwnerAndIsNotSold(userModel: UserModel): Observable<ProductModel[]>{
+  findAllProductsByUserOwnerAndIsNotSold(userModel: UserModel): Observable<ProductModel[]> {
     return this.http.get<ProductModel[]>(this.urlBase + `products/userOwnerAndIsNotSold/${userModel._id}`);
   }
 
-  addNewConversation(conversation: ConversationModel): Observable<ConversationModel>{
+  addNewConversation(conversation: ConversationModel): Observable<ConversationModel> {
     return this.http.post<ConversationModel>(this.urlBase + 'conversations/', conversation);
+  }
+
+  findConversationsByUserOwnerIdOrUserBuyerId(idUserOwner: string, idUserBuyer: string): Observable<ConversationModel[]> {
+    return this.http.get<ConversationModel[]>(this.urlBase + `conversations/userOwnerIdOrUserBuyerId/${idUserOwner}/${idUserBuyer}`);
+  }
+
+  findConversationById(idConversation: string): Observable<ConversationModel>{
+    return this.http.get<ConversationModel>(this.urlBase + `conversations/${idConversation}`);
   }
 }

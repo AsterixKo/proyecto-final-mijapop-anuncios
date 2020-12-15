@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ConversationModel } from 'src/app/models/conversation.model';
 import { MijapopService } from 'src/app/services/mijapop.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { MijapopService } from 'src/app/services/mijapop.service';
 export class ChatRoomComponent implements OnInit {
 
   idConversation: string = '';
+  conversation: ConversationModel;
 
   constructor(private route: ActivatedRoute, private mijapopService: MijapopService) { }
 
@@ -18,11 +20,17 @@ export class ChatRoomComponent implements OnInit {
   }
 
   async loadData() {
-     this.route.params.subscribe((params => {
+    this.route.params.subscribe((params => {
       console.log('El id es:', params['idConversation']);
       console.log(params);
       this.idConversation = params['idConversation'];
     }));
+
+    await this.mijapopService.findConversationById(this.idConversation).toPromise().then((data) => {
+      this.conversation = data;
+    }).catch((error) => {
+      console.log('error:', error);
+    });
   }
 
 }

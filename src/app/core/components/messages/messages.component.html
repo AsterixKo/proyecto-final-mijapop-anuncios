@@ -1,1 +1,43 @@
-<p>messages works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Conversaciones:</h1>
+    </div>
+  </div>
+</div>
+
+<div class="container-big">
+  <div class="container py-2">
+    <div class="row" *ngFor="let conversation of this.conversations">
+      <div class="col">
+
+        <div class="my-card d-flex mb-2">
+          <div class="my-card-image p-2">
+            <figure class="my-figure">
+              <img class="my-img" src="{{conversation.product.photo1}}" />
+            </figure>
+
+          </div>
+          <div class="my-card-content p-2">
+            <div class="my-card-price">{{conversation.product.price}} {{conversation.product.currency}}</div>
+            <div class="my-card-name btn btn-link text-dark"
+              [routerLink]="['/product-detail', conversation.product._id]">
+              {{conversation.product.name}}</div>
+            <div class="my-card-category-subcategory">
+              <span class="btn btn-success"
+                [routerLink]="['/products-category', conversation.product.category._id]">{{conversation.product.category.name}}</span>
+              <span class="btn btn-link"
+                [routerLink]="['/products-subcategory', conversation.product.subcategory._id]">{{conversation.product.subcategory.name}}</span>
+            </div>
+            <div class="my-card-description">{{conversation.product.description}}</div>
+            <div>
+              <button type="submit" class="btn btn-block btn-primary" (click)="openChatRoom(conversation._id)">Hablar con
+                {{conversation.product.userOwner.name}}</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
