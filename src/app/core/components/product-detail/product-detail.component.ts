@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ConversationModel } from 'src/app/models/conversation.model';
 import { ProductFavoriteModel } from 'src/app/models/product-favorite.model';
 import { ProductModel } from 'src/app/models/product.model';
 import { UserModel } from 'src/app/models/user.model';
@@ -19,7 +20,7 @@ export class ProductDetailComponent implements OnInit {
   currentUser: UserModel;
   productFavorite: ProductFavoriteModel;
 
-  constructor(private route: ActivatedRoute, private mijapopService: MijapopService) { }
+  constructor(private route: ActivatedRoute, private router:Router, private mijapopService: MijapopService) { }
 
   ngOnInit(): void {
     this.initializeData();
@@ -101,6 +102,24 @@ export class ProductDetailComponent implements OnInit {
     }, (error) => {
       console.log(error);
     });
+  }
+
+  async openConversation(){
+    const conversation = new ConversationModel();
+    conversation.userOwner = this.product.userOwner;
+    conversation.userBuyer = this.currentUser;
+    conversation.product = this.product;
+
+    await this.mijapopService.addNewConversation(conversation).toPromise().then((data)=>{
+      console.log('nueva conversación creada');
+      //aqui debo redireccionar al componente que tenga la conversacion
+      const newConversation = data;
+      console.log('direccionando a chat-room con id:', newConversation._id)
+      this.router.navigate(['chat-room', newConversation._id]);
+    }).catch((error=>{
+      console.log('error', error);
+    }));
+    
   }
 
 }

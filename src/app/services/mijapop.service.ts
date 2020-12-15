@@ -8,6 +8,7 @@ import { UserModel } from '../models/user.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ProductFavoriteModel } from '../models/product-favorite.model';
+import { ConversationModel } from '../models/conversation.model';
 
 @Injectable({
   providedIn: 'root',
@@ -366,5 +367,9 @@ export class MijapopService implements OnInit {
 
   findAllProductsByUserOwnerAndIsNotSold(userModel: UserModel): Observable<ProductModel[]>{
     return this.http.get<ProductModel[]>(this.urlBase + `products/userOwnerAndIsNotSold/${userModel._id}`);
+  }
+
+  addNewConversation(conversation: ConversationModel): Observable<ConversationModel>{
+    return this.http.post<ConversationModel>(this.urlBase + 'conversations/', conversation);
   }
 }
