@@ -1,0 +1,41 @@
+.main-container{
+    background-color: #e9ebee;
+}
+
+.foto {
+	display: inline-block;
+	width: 40px;
+    height: 40px;
+    padding-left: 0;
+	margin-right: 15px;
+}
+/* .comentario p{
+    margin:0;
+    padding:0;
+    background: #fff;
+    color: #3d3c3c;
+    font-size: 14px;
+    padding: 15px;
+} */
+.texto-owner{
+    margin:0;
+    padding:0;
+    background:#2ECC71;
+    color: #3d3c3c;
+    font-size: 14px;
+    padding: 15px;
+    border-radius: 10px;
+}
+.texto{
+    margin:0;
+    padding:0;
+    background: #fff;
+    color: #3d3c3c;
+    font-size: 14px;
+    padding: 15px;
+    border-radius: 10px;
+}
+.fecha{
+    margin-bottom: 15px;
+    font-size: 10px;
+}

@@ -9,6 +9,7 @@ export class ConversationModel {
     srcPhoto?: string;
     productName?: string;
     nameUserBuyer?: string;
+    date?: Date;
 
 
 }
