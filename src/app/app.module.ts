@@ -39,6 +39,7 @@ import { FooterPrivacyComponent } from './shared/components/footer-privacy/foote
 import { FooterCookiesComponent } from './shared/components/footer-cookies/footer-cookies.component';
 import { AddSubcategoryComponent } from './core/components/add-subcategory/add-subcategory.component';
 import { AddProductStatusComponent } from './core/components/add-product-status/add-product-status.component';
+import { ChatRoomComponent } from './core/components/chat-room/chat-room.component';
 
 
 @NgModule({
@@ -76,7 +77,8 @@ import { AddProductStatusComponent } from './core/components/add-product-status/
     FooterPrivacyComponent,
     FooterCookiesComponent,
     AddSubcategoryComponent,
-    AddProductStatusComponent
+    AddProductStatusComponent,
+    ChatRoomComponent
   ],
   imports: [
     BrowserModule,

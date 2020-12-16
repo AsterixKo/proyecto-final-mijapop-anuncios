@@ -1,0 +1,44 @@
+<div class="main-container" *ngIf="this.conversation">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Chat-room - {{this.conversation.product.name}} - {{this.conversation.product.userOwner.name}}</h1>
+      </div>
+    </div>
+
+    <div class="row" *ngFor="let message of this.messages" [ngClass]="{'mr-5': message.user._id !== this.currentUser._id,
+      'ml-5': message.user._id === this.currentUser._id}">
+      <div class="col-auto foto">
+        <img src="assets/image/user.png" />
+      </div>
+      <div class="col">
+        <div class="comentario">
+          <div class="nombre btn-link">{{message.user.name}}</div>
+          <p [ngClass]="{'texto': message.user._id !== this.currentUser._id,
+          'texto-current-user': message.user._id === this.currentUser._id}" >{{message.text}}</p>
+          <div class="fecha">{{message.date | date: 'd/M/yyyy, HH:mm:ss'}}</div>
+        </div>
+      </div>
+    </div>
+
+    <form autocomplete="off" [formGroup]="forma" (ngSubmit)="saveForm()">
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <hr>
+            <textarea class="form-control" id="inputTextArea" formControlName="text" rows="3"></textarea>
+            <!-- <textarea class="form-control" id="inputTextArea" formControlName="text" rows="3"
+              [class.is-invalid]="isFieldInvalid('text')"></textarea>
+              <small class="form-text text-danger" *ngIf="isFieldInvalid('text')">El mensaje no puede ser vacio</small> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col form-group">
+          <button type="submit" class="btn btn-block btn-primary">Responder</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

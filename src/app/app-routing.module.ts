@@ -4,6 +4,7 @@ import { AddCategoryComponent } from './core/components/add-category/add-categor
 import { AddProductStatusComponent } from './core/components/add-product-status/add-product-status.component';
 import { AddProvinceComponent } from './core/components/add-province/add-province.component';
 import { AddSubcategoryComponent } from './core/components/add-subcategory/add-subcategory.component';
+import { ChatRoomComponent } from './core/components/chat-room/chat-room.component';
 import { FavoritesComponent } from './core/components/favorites/favorites.component';
 import { MessagesComponent } from './core/components/messages/messages.component';
 import { MyProductsMarketComponent } from './core/components/my-products-market/my-products-market.component';
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'favorites', component: FavoritesComponent, canActivate: [AuthGuard] },
   { path: 'messages', component: MessagesComponent, canActivate: [AuthGuard] },
+  { path: 'chat-room/:idConversation', component: ChatRoomComponent, canActivate: [AuthGuard] },
   { path: 'my-products-market', component: MyProductsMarketComponent, canActivate: [AuthGuard] },
   { path: 'my-products-sold', component: MyProductsSoldComponent, canActivate: [AuthGuard] },
   { path: 'product-detail/:id', component: ProductDetailComponent },

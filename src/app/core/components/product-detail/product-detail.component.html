@@ -33,7 +33,7 @@
               <span class="font-weight-bold">Vendedor: </span>
               <span>{{product.userOwner.name}}</span>
             </div>
-            <div><button type="button" class="btn btn-primary">Contactar</button>
+            <div><button type="button" *ngIf="!this.isMyProduct" (click)="openConversation()" class="btn btn-primary">Contactar</button>
               <button type="button" *ngIf="!this.isFavorite" (click)="saveOnFavorites()" class="btn btn-info ml-1">Guardar en favoritos</button>
               <button type="button" *ngIf="this.isFavorite" (click)="deleteFromFavorites()" class="btn btn-info ml-1">Eliminar de favoritos</button>
               <button type="button" *ngIf="this.isMyProduct && product.isSold" (click)="activateProduct()" class="btn btn-secondary ml-1">Poner en venta de nuevo</button>
