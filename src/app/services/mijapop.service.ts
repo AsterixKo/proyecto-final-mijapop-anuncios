@@ -9,6 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ProductFavoriteModel } from '../models/product-favorite.model';
 import { ConversationModel } from '../models/conversation.model';
+import { MessageModel } from '../models/message.model';
 
 @Injectable({
   providedIn: 'root',
@@ -377,7 +378,15 @@ export class MijapopService implements OnInit {
     return this.http.get<ConversationModel[]>(this.urlBase + `conversations/userOwnerIdOrUserBuyerId/${idUserOwner}/${idUserBuyer}`);
   }
 
-  findConversationById(idConversation: string): Observable<ConversationModel>{
+  findConversationById(idConversation: string): Observable<ConversationModel> {
     return this.http.get<ConversationModel>(this.urlBase + `conversations/${idConversation}`);
+  }
+
+  addNewMessage(message: MessageModel): Observable<MessageModel> {
+    return this.http.post(this.urlBase + 'messages/', message);
+  }
+
+  findMessagesByConversationId(conversationId: string): Observable<MessageModel[]> {
+    return this.http.get<MessageModel[]>(this.urlBase + `messages/conversationId/${conversationId}`);
   }
 }

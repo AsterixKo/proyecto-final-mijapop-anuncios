@@ -6,54 +6,39 @@
       </div>
     </div>
 
-    <div class="row ml-5">
+    <div class="row" *ngFor="let message of this.messages" [ngClass]="{'mr-5': message.user._id !== this.currentUser._id,
+      'ml-5': message.user._id === this.currentUser._id}">
       <div class="col-auto foto">
         <img src="assets/image/user.png" />
       </div>
       <div class="col">
         <div class="comentario">
-          <div class="nombre btn-link">Maria</div>
-          <p class="texto-owner">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-            labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea
-            commodo consequat.</p>
-          <div class="fecha">11:01 AM | Today</div>
+          <div class="nombre btn-link">{{message.user.name}}</div>
+          <p [ngClass]="{'texto': message.user._id !== this.currentUser._id,
+          'texto-current-user': message.user._id === this.currentUser._id}" >{{message.text}}</p>
+          <div class="fecha">{{message.date | date: 'd/M/yyyy, HH:mm:ss'}}</div>
         </div>
       </div>
     </div>
 
-    <div class="row mr-5">
-      <div class="col-auto foto">
-        <img src="assets/image/user.png" />
-      </div>
-      <div class="col">
-        <div class="comentario">
-          <div class="nombre btn-link">Yo</div>
-          <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-            labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea
-            commodo consequat.</p>
-          <div class="fecha">11:01 AM | Today</div>
+    <form autocomplete="off" [formGroup]="forma" (ngSubmit)="saveForm()">
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <hr>
+            <textarea class="form-control" id="inputTextArea" formControlName="text" rows="3"></textarea>
+            <!-- <textarea class="form-control" id="inputTextArea" formControlName="text" rows="3"
+              [class.is-invalid]="isFieldInvalid('text')"></textarea>
+              <small class="form-text text-danger" *ngIf="isFieldInvalid('text')">El mensaje no puede ser vacio</small> -->
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <hr>
-          <textarea class="form-control" id="inputTextArea" name="nameInputTextArea" rows="3"></textarea>
+      <div class="form-row">
+        <div class="col form-group">
+          <button type="submit" class="btn btn-block btn-primary">Responder</button>
         </div>
       </div>
-    </div>
-
-    <div class="form-row">
-      <div class="col form-group">
-        <button type="submit" class="btn btn-block btn-primary">Responder</button>
-      </div>
-    </div>
-
+    </form>
   </div>
 </div>
