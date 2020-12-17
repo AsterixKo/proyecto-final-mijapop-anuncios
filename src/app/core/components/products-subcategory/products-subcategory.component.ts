@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ProductModel } from 'src/app/models/product.model';
+import { SubcategoryModel } from 'src/app/models/subcategory.model';
+import { MijapopService } from 'src/app/services/mijapop.service';
 
 @Component({
   selector: 'app-products-subcategory',
@@ -8,19 +11,31 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductsSubcategoryComponent implements OnInit {
 
-  subcategory: string = ''
-  constructor(private route: ActivatedRoute) { }
+  subcategoryId: string = '';
+  subcategory: SubcategoryModel;
+  products: ProductModel[];
+
+  constructor(private route: ActivatedRoute, private mijapopService: MijapopService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       console.log('El subcategory es:', params['subcategory']);
       console.log(params);
-      this.subcategory = params['subcategory'];
+      this.subcategoryId = params['subcategory'];
     });
 
-    if (this.subcategory != null && this.subcategory != '') {
+    if (this.subcategoryId != null && this.subcategoryId != '') {
       console.log('Iniciando búsqueda por subcategory...');
-      // this.products = this.mijapop.findProductsByCategory(this.q);
+      this.mijapopService.findSubcategoryById(this.subcategoryId).subscribe((data) => {
+        this.subcategory = data;
+      }, (error) => {
+        console.log('error:', error);
+      });
+      this.mijapopService.findAllProductsBySubcategoryId(this.subcategoryId).subscribe((data) => {
+        this.products = data;
+      }, (error) => {
+        console.log('error:', error);
+      });
     }
   }
 

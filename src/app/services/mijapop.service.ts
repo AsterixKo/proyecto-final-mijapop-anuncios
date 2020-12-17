@@ -397,4 +397,12 @@ export class MijapopService implements OnInit {
   findCategoryById(categoryId: string): Observable<CategoryModel> {
     return this.http.get<CategoryModel>(this.urlBase + `categories/${categoryId}`);
   }
+
+  findSubcategoryById(subcategoryId: string): Observable<SubcategoryModel> {
+    return this.http.get<SubcategoryModel>(this.urlBase + `subcategories/${subcategoryId}`);
+  }
+
+  findAllProductsBySubcategoryId(subcategoryId: string): Observable<ProductModel[]> {
+    return this.http.get<ProductModel[]>(this.urlBase + `products/subcategory/${subcategoryId}`);
+  }
 }
