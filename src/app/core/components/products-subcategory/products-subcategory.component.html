@@ -1,2 +1,18 @@
-<h1>{{this.subcategory}}</h1>
-<p>products-subcategory works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Estás buscando en la subcategoría: {{this.subcategory.name}}</h1>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-big">
+    <div class="container py-2">
+      <div class="row" *ngFor="let product of products">
+        <div class="col">
+          <app-product-card [product]="product"></app-product-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  
