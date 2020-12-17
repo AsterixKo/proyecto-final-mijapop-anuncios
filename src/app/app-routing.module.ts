@@ -4,6 +4,7 @@ import { AddCategoryComponent } from './core/components/add-category/add-categor
 import { AddProductStatusComponent } from './core/components/add-product-status/add-product-status.component';
 import { AddProvinceComponent } from './core/components/add-province/add-province.component';
 import { AddSubcategoryComponent } from './core/components/add-subcategory/add-subcategory.component';
+import { CategoriesComponent } from './core/components/categories/categories.component';
 import { ChatRoomComponent } from './core/components/chat-room/chat-room.component';
 import { FavoritesComponent } from './core/components/favorites/favorites.component';
 import { MessagesComponent } from './core/components/messages/messages.component';
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'favorites', component: FavoritesComponent, canActivate: [AuthGuard] },
   { path: 'messages', component: MessagesComponent, canActivate: [AuthGuard] },
   { path: 'chat-room/:idConversation', component: ChatRoomComponent, canActivate: [AuthGuard] },
+  { path: 'categories', component: CategoriesComponent },
   { path: 'my-products-market', component: MyProductsMarketComponent, canActivate: [AuthGuard] },
   { path: 'my-products-sold', component: MyProductsSoldComponent, canActivate: [AuthGuard] },
   { path: 'product-detail/:id', component: ProductDetailComponent },
@@ -46,6 +48,7 @@ const routes: Routes = [
   { path: 'products-province/:province', component: ProductsProvinceComponent },
   { path: 'products-town/:town', component: ProductsTownComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  // { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], data: {role:  'ROLE_ADMIN'} },
   { path: 'register', component: RegisterComponent },
   { path: 'search/:q', component: SearchComponent },
   { path: 'upload-product', component: UploadProductComponent, canActivate: [AuthGuard] },

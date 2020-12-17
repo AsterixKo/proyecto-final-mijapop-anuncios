@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row my-3">
+    <div class="col d-flex flex-wrap">
+      <div class="m-1" *ngFor="let category of categories">
+        <a [routerLink]="['/products-category', category._id]" class="btn btn-success">
+          <h6>{{category.name}}</h6>
+        </a>
+        <div *ngFor="let subcategory of category.subcategories">
+          <a [routerLink]="['/products-subcategory', subcategory._id]"><span>{{subcategory.name}}</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
