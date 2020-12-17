@@ -389,4 +389,12 @@ export class MijapopService implements OnInit {
   findMessagesByConversationId(conversationId: string): Observable<MessageModel[]> {
     return this.http.get<MessageModel[]>(this.urlBase + `messages/conversationId/${conversationId}`);
   }
+
+  findAllProductsByCategoryId(categoryId: string): Observable<ProductModel[]> {
+    return this.http.get<ProductModel[]>(this.urlBase + `products/category/${categoryId}`);
+  }
+
+  findCategoryById(categoryId: string): Observable<CategoryModel> {
+    return this.http.get<CategoryModel>(this.urlBase + `categories/${categoryId}`);
+  }
 }
