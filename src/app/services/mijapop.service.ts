@@ -413,4 +413,8 @@ export class MijapopService implements OnInit {
   findAllProductsByProvinceId(provinceId: string): Observable<ProductModel[]> {
     return this.http.get<ProductModel[]>(this.urlBase + `products/province/${provinceId}`);
   }
+
+  findAllProductsByTown(town: string): Observable<ProductModel[]>{
+    return this.http.get<ProductModel[]>(this.urlBase + `products/town/${town}`);
+  }
 }

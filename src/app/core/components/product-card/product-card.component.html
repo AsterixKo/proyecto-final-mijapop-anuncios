@@ -16,6 +16,8 @@
         [routerLink]="['/products-subcategory', product.subcategory._id]">{{product.subcategory.name}}</span>
       <span class="btn btn-link"
         [routerLink]="['/products-province', product.province._id]">{{product.province.name}}</span>
+      <span class="btn btn-link"
+        [routerLink]="['/products-town', product.town]">{{product.town}}</span>
     </div>
     <div class="my-card-description">{{product.description}}</div>
   </div>

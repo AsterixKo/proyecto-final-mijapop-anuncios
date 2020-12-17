@@ -1,9 +1,17 @@
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <h1>Productos en la ciudad: {{town}}</h1>
-            <p>products-town works!</p>
-        </div>
+  <div class="row">
+    <div class="col">
+      <h1>Estás buscando en la ciudad: {{this.town}}</h1>
     </div>
+  </div>
 </div>
 
+<div class="container-big">
+  <div class="container py-2">
+    <div class="row" *ngFor="let product of products">
+      <div class="col">
+        <app-product-card [product]="product"></app-product-card>
+      </div>
+    </div>
+  </div>
+</div>
