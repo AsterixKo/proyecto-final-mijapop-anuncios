@@ -40,6 +40,7 @@ import { FooterCookiesComponent } from './shared/components/footer-cookies/foote
 import { AddSubcategoryComponent } from './core/components/add-subcategory/add-subcategory.component';
 import { AddProductStatusComponent } from './core/components/add-product-status/add-product-status.component';
 import { ChatRoomComponent } from './core/components/chat-room/chat-room.component';
+import { CategoriesComponent } from './core/components/categories/categories.component';
 
 
 @NgModule({
@@ -78,7 +79,8 @@ import { ChatRoomComponent } from './core/components/chat-room/chat-room.compone
     FooterCookiesComponent,
     AddSubcategoryComponent,
     AddProductStatusComponent,
-    ChatRoomComponent
+    ChatRoomComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
