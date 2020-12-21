@@ -1,6 +1,10 @@
 #navBarSearchInput {
   width: 430px !important;
 }
-.bg-dark{
+/* .bg-dark{
   background-color:#ff5757de!important;
+} */
+
+.bg-dark{
+  background-color:#b6cadf!important;
 }
